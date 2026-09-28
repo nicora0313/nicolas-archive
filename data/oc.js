@@ -1,3 +1,6 @@
+/* 8人表示テスト版：公開中の既存4人は保持しています。
+   テスト終了後はバックアップした元の data/oc.js に戻してください。
+   このファイル末尾でテスト用4人を追加しています。 */
 /* =========================================================
    OC CHARACTER DATA
    このファイルだけを編集すればOCを追加・修正できます。
@@ -170,3 +173,27 @@ window.OC_CHARACTERS = [
        1つ前の } の後ろに , を入れるのを忘れずに！
     */
   ];
+
+// 表示確認用。5人目から2行目（4列×2行）になります。
+// 以下の追加部分を削除すると元の4人に戻ります。
+window.OC_CHARACTERS.push(
+  ...["#e28aa0", "#70b8a2", "#c6a45d", "#9d85c7"].map((themeColor, i) => ({
+    name: `TEST ${String(i + 5).padStart(2, "0")}`,
+    category: "character",
+    listSub: `TEST CHARACTER ${i + 5}`,
+    sub: "表示確認用 / ORIGINAL CHARACTER",
+    age: "—",
+    height: "—",
+    role: "表示確認用",
+    color: "TEST COLOR",
+    themeColor,
+    icon: "",
+    images: [],
+    imageLabels: [],
+    outfits: [],
+    artworks: [],
+    text: "4列×2行のレイアウトを確認するための仮キャラクターです。",
+    music: [],
+    videos: []
+  }))
+);
