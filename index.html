@@ -1832,6 +1832,26 @@ button:focus-visible,a:focus-visible,summary:focus-visible{outline:2px solid #79
 .stance-contact .contact-big{font:italic 32px/1.25 var(--archive-serif);letter-spacing:.02em;margin-bottom:24px}.stance-contact .contact-big br{display:none}.stance-contact .contact-links a{color:var(--black);border-color:#aaa89f}
 
 </style>
+<style id="character-heading-spacing-fix">
+/* Put the back control in document flow, above the heading. */
+section[data-page="character"] #characterBack{
+ position:static!important;inset:auto!important;transform:none!important;
+ display:grid;width:44px;height:44px;margin:0 0 18px!important;
+ box-shadow:none;float:none;
+}
+section[data-page="character"] #characterBack + .section-head{
+ clear:both;position:relative;margin-top:0!important;
+}
+section[data-page="character"] #characterBack + .section-head .title{
+ max-width:100%!important;white-space:normal!important;
+ overflow-wrap:anywhere;overflow:visible!important;
+}
+</style>
+<style id="archive-navigation-expanded">
+.archive-nav{flex-wrap:wrap;column-gap:clamp(18px,4vw,48px);row-gap:0;padding:8px 16px}
+.archive-nav a{display:flex;align-items:center;justify-content:center;min-height:44px;white-space:nowrap;font-size:13px}
+@media(max-width:480px){.archive-nav{column-gap:22px;padding:8px 20px}.archive-nav a{font-size:12px;letter-spacing:.03em}}
+</style>
 </head>
 
 <body>
@@ -1895,7 +1915,7 @@ button:focus-visible,a:focus-visible,summary:focus-visible{outline:2px solid #79
     <span class="menu-label">MENU</span>
   </button>
 </header>
-<nav class="archive-nav" aria-label="メインナビゲーション"><a href="#home">ホーム</a><a href="#characters">キャラクター</a><a href="#works">ギャラリー</a></nav>
+<nav class="archive-nav" aria-label="メインナビゲーション"><a href="#home">ホーム</a><a href="#characters">キャラクター</a><a href="#works">ギャラリー</a><a href="#stance">創作スタンス</a><a href="#contact">ご依頼</a></nav>
 
 <div class="overlay" id="overlay"></div>
 
@@ -2059,7 +2079,7 @@ button:focus-visible,a:focus-visible,summary:focus-visible{outline:2px solid #79
     ======================================================= -->
   <section class="view" data-page="character">
     <div class="section wrap">
-      <a class="back" id="characterBack" href="#characters">OC</a>
+      <a class="back" id="characterBack" aria-label="キャラクター一覧に戻る" href="#characters">OC</a>
       <div class="section-head">
         <div class="dot"></div>
         <h1 class="title">CHARACTER</h1>
