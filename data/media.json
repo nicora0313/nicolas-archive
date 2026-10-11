@@ -1,0 +1,120 @@
+{
+  "headerImages": [
+    {
+      "pc": "images/header/header01_pc.webp",
+      "sp": "images/header/header01_sp.webp"
+    },
+    {
+      "pc": "images/header/header02_pc.webp",
+      "sp": "images/header/header02_sp.webp"
+    },
+    {
+      "pc": "images/header/header03_pc.webp",
+      "sp": "images/header/header03_sp.webp"
+    }
+  ],
+  "selectedWorks": [
+    {
+      "image": "images/selected/selected01.webp",
+      "category": "ORIGINAL",
+      "title": "SELECTED WORK 01",
+      "sub": "Illustration"
+    },
+    {
+      "image": "images/selected/selected02.webp",
+      "category": "ILLUSTRATION",
+      "title": "SELECTED WORK 02",
+      "sub": "Illustration"
+    },
+    {
+      "image": "images/selected/selected03.webp",
+      "category": "CHARACTER DESIGN",
+      "title": "SELECTED WORK 03",
+      "sub": "Character Design"
+    },
+    {
+      "image": "images/selected/selected04.webp",
+      "category": "ORIGINAL",
+      "title": "SELECTED WORK 04",
+      "sub": "Original"
+    },
+    {
+      "image": "images/selected/selected05.webp",
+      "category": "ILLUSTRATION",
+      "title": "SELECTED WORK 05",
+      "sub": "Illustration"
+    },
+    {
+      "image": "images/selected/selected06.webp",
+      "category": "ORIGINAL",
+      "title": "SELECTED WORK 06",
+      "sub": "Illustration"
+    }
+  ],
+  "works": [
+    {
+      "title": "Illust1",
+      "year": "Illustration",
+      "group": "oc",
+      "category": "rp",
+      "image": "images/illustration/illust1.webp",
+      "full": "images/illustration/illust1.webp"
+    },
+    {
+      "title": "Illust2",
+      "year": "Illustration",
+      "group": "oc",
+      "category": "rp",
+      "image": "images/illustration/illust2.webp",
+      "full": "images/illustration/illust2.webp"
+    },
+    {
+      "title": "Illust3",
+      "year": "Illustration",
+      "group": "oc",
+      "category": "rp",
+      "image": "images/illustration/illust3.webp",
+      "full": "images/illustration/illust3.webp"
+    },
+    {
+      "title": "Illust4",
+      "year": "Illustration",
+      "group": "oc",
+      "category": "rp",
+      "image": "images/illustration/illust4.webp",
+      "full": "images/illustration/illust4.webp"
+    },
+    {
+      "title": "Illust5",
+      "year": "Illustration",
+      "group": "oc",
+      "category": "rp",
+      "image": "images/illustration/illust5.webp",
+      "full": "images/illustration/illust5.webp"
+    },
+    {
+      "title": "Illust6",
+      "year": "Illustration",
+      "group": "oc",
+      "category": "rp",
+      "image": "images/illustration/illust6.webp",
+      "full": "images/illustration/illust6.webp"
+    },
+    {
+      "title": "Illust7",
+      "year": "Illustration",
+      "group": "oc",
+      "category": "rp",
+      "image": "images/illustration/illust7.webp",
+      "full": "images/illustration/illust7.webp"
+    },
+    {
+      "title": "Illust8",
+      "year": "Illustration",
+      "group": "oc",
+      "category": "rp",
+      "image": "images/illustration/illust8.webp",
+      "full": "images/illustration/illust8.webp"
+    }
+  ]
+}
