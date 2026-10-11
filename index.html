@@ -4693,10 +4693,33 @@ function renderCharacter(index, kind="oc") {
   const videos = Array.isArray(c.videos) ? c.videos : [];
   const tracks = Array.isArray(c.music) ? c.music : [];
 
+  function youtubePlaybackUrl(value){
+    try{
+      const u = new URL(String(value || '').trim());
+      if(!['https:', 'http:'].includes(u.protocol)) return '';
+      const host = u.hostname.toLowerCase();
+      const parts = u.pathname.split('/').filter(Boolean);
+      let id = '';
+      if(host === 'youtu.be') id = parts[0] || '';
+      else if(['youtube.com','www.youtube.com','m.youtube.com','music.youtube.com','youtube-nocookie.com','www.youtube-nocookie.com'].includes(host)){
+        id = u.pathname === '/watch' ? u.searchParams.get('v') :
+          ['embed','shorts','live'].includes(parts[0]) ? parts[1] : '';
+      }
+      if(!/^[A-Za-z0-9_-]{11}$/.test(id || '')) return '';
+      const out = new URL('https://www.youtube.com/embed/' + id);
+      const time = u.searchParams.get('start') || u.searchParams.get('t') || '';
+      const match = time.match(/^(?:(\d+)h)?(?:(\d+)m)?(?:(\d+)s)?$/);
+      const seconds = /^\d+$/.test(time) ? Number(time) : match ? Number(match[1]||0)*3600+Number(match[2]||0)*60+Number(match[3]||0) : 0;
+      if(seconds > 0 && Number.isSafeInteger(seconds)) out.searchParams.set('start', String(seconds));
+      out.searchParams.set('autoplay','1');
+      out.searchParams.set('enablejsapi','1');
+      out.searchParams.set('playsinline','1');
+      return out.href;
+    }catch{return '';}
+  }
   function getYoutubeId(url){
-    if(!url) return "";
-    const m = url.match(/(?:embed\/|youtu\.be\/|v=)([A-Za-z0-9_-]{6,})/);
-    return m ? m[1] : "";
+    const playback = youtubePlaybackUrl(url);
+    return playback ? new URL(playback).pathname.split('/').pop() : '';
   }
 
   function renderMediaScreen(){
@@ -4949,25 +4972,24 @@ function renderCharacter(index, kind="oc") {
         /* 新しい曲を再生する前に、それまでの動画・音楽を一時停止（位置保持） */
         pauseAllMediaPreservePosition();
 
-        if(!music.embedUrl){
+        const playbackUrl = youtubePlaybackUrl(music.embedUrl);
+        if(!playbackUrl){
           wrap.innerHTML = `
             <div style="display:grid;place-items:center;width:100%;height:100%;color:#fff;">
-              YOUTUBE URL NOT SET
+              YouTubeの共有URLを設定してください
             </div>
           `;
           return;
         }
 
-        const join = music.embedUrl.includes("?") ? "&" : "?";
+        const player = document.createElement('iframe');
+        player.src = playbackUrl;
+        player.title = music.title || 'YouTube player';
+        player.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+        player.referrerPolicy = 'strict-origin-when-cross-origin';
+        player.allowFullscreen = true;
+        wrap.replaceChildren(player);
 
-        wrap.innerHTML = `
-          <iframe
-            src="${music.embedUrl}${join}autoplay=1&enablejsapi=1"
-            title="${music.title}"
-            allow="autoplay; encrypted-media; picture-in-picture"
-            allowfullscreen
-          ></iframe>
-        `;
       }
     };
 
