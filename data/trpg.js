@@ -1,1 +1,40 @@
-window.TRPG_CHARACTERS = [];
+window.TRPG_CHARACTERS = [
+  {
+    "name": "TEST 05",
+    "category": "character",
+    "listSub": "TEST CHARACTER 5",
+    "sub": "表示確認用 / ORIGINAL CHARACTER",
+    "age": "—",
+    "height": "—",
+    "role": "表示確認用",
+    "color": "TEST COLOR",
+    "themeColor": "#e28aa0",
+    "icon": "",
+    "images": [],
+    "imageLabels": [],
+    "outfits": [],
+    "artworks": [],
+    "text": "4列×2行のレイアウトを確認するための仮キャラクターです。",
+    "music": [],
+    "videos": []
+  },
+  {
+    "name": "TEST 06",
+    "category": "character",
+    "listSub": "TEST CHARACTER 6",
+    "sub": "表示確認用 / ORIGINAL CHARACTER",
+    "age": "—",
+    "height": "—",
+    "role": "表示確認用",
+    "color": "TEST COLOR",
+    "themeColor": "#70b8a2",
+    "icon": "",
+    "images": [],
+    "imageLabels": [],
+    "outfits": [],
+    "artworks": [],
+    "text": "4列×2行のレイアウトを確認するための仮キャラクターです。",
+    "music": [],
+    "videos": []
+  }
+];
