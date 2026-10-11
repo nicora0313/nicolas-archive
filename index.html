@@ -1835,6 +1835,58 @@ button:focus-visible,a:focus-visible,summary:focus-visible{outline:2px solid #79
 </head>
 
 <body>
+<style>
+#archiveLoading{position:fixed;inset:0;z-index:9999;display:grid;place-items:center;background:#faf9f5;color:#282923;opacity:1;transition:opacity .45s ease;padding:24px;overscroll-behavior:contain}
+#archiveLoading[hidden]{display:none!important}#archiveLoading.is-leaving{opacity:0;pointer-events:none}
+.archive-loading-inner{width:min(340px,100%);text-align:center}.archive-loading-brand{font:11px Georgia,serif;letter-spacing:.24em;margin:0 0 38px}
+.archive-loading-mark{width:48px;height:48px;margin:0 auto 36px;border:1px solid #aaa99e;transform:rotate(45deg);display:grid;place-items:center;animation:archivePulse 1.8s ease-in-out infinite}.archive-loading-mark span{transform:rotate(-45deg);font:18px Georgia,serif}
+.archive-loading-title{font:19px Georgia,serif;letter-spacing:.18em;margin:0 0 24px}.archive-loading-meter{height:3px;width:100%;overflow:hidden;background:#dddcd4;position:relative}.archive-loading-meter::after{content:'';position:absolute;inset:0;width:32%;background:#282923;animation:archiveSweep 1.5s ease-in-out infinite}
+.archive-loading-status{font:12px/1.8 sans-serif;color:#77766f;margin:14px 0 0}.archive-loading-skip{margin-top:22px;border:0;border-bottom:1px solid #bdbbb2;background:none;color:#77766f;min-height:44px;padding:8px;font:12px sans-serif;cursor:pointer}
+@keyframes archivePulse{50%{opacity:.35;transform:rotate(45deg) scale(.88)}}@keyframes archiveSweep{0%{transform:translateX(-110%)}100%{transform:translateX(420%)}}
+@media(prefers-reduced-motion:reduce){#archiveLoading{transition:none}.archive-loading-mark,.archive-loading-meter::after{animation:none}}
+</style>
+<div id="archiveLoading" hidden>
+ <div class="archive-loading-inner">
+  <p class="archive-loading-brand">NICOLAS ARCHIVE</p>
+  <div class="archive-loading-mark" aria-hidden="true"><span>NA</span></div>
+  <p class="archive-loading-title">NOW LOADING</p>
+  <div class="archive-loading-meter" role="progressbar" aria-label="公開ページを読み込み中"></div>
+  <p class="archive-loading-status" role="status" id="archiveLoadingStatus">ページを準備しています</p>
+  <button class="archive-loading-skip" type="button" id="archiveLoadingSkip">表示をスキップ</button>
+ </div>
+</div>
+<script>
+(function(){
+ const layer=document.getElementById('archiveLoading');
+ const status=document.getElementById('archiveLoadingStatus');
+ let done=false;
+ const started=performance.now();
+ layer.hidden=false;
+ function close(){
+  if(done)return;done=true;clearTimeout(failsafe);
+  layer.classList.add('is-leaving');
+  setTimeout(()=>{layer.hidden=true;},500);
+ }
+ const failsafe=setTimeout(close,12000);
+ document.getElementById('archiveLoadingSkip').addEventListener('click',close);
+ window.addEventListener('pageshow',event=>{if(event.persisted)close();});
+ window.finishArchiveLoading=async function(){
+  if(done)return;
+  status.textContent='表示を整えています';
+  const img=document.querySelector('.view.active .home-slide.active img, .view.active .overview-image img, .view.active .illustration-main img');
+  if(img&&!img.complete){
+   await new Promise(resolve=>{
+    let timer;
+    const settle=()=>{clearTimeout(timer);img.removeEventListener('load',settle);img.removeEventListener('error',settle);resolve();};
+    img.addEventListener('load',settle,{once:true});img.addEventListener('error',settle,{once:true});timer=setTimeout(settle,2500);
+   });
+  }
+  // A short minimum avoids a distracting flash on cached loads.
+  setTimeout(close,Math.max(0,650-(performance.now()-started)));
+ };
+})();
+</script>
+
 
 <header class="topbar">
   <a class="brand" href="#home" id="brandText"></a>
@@ -5434,6 +5486,7 @@ await illustrationsReady;
 renderSite();
 window.addEventListener("hashchange",showPage);
 showPage();
+window.finishArchiveLoading?.();
 scheduleIdleDataPrefetch();
 }
 startPortfolio();
