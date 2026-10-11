@@ -3682,7 +3682,7 @@ function loadCharacterData(kind){
 
   CHARACTER_DATA_PROMISE[kind] = new Promise((resolve,reject) => {
     const script = document.createElement("script");
-    script.src = config.src;
+    script.src = config.src + "?v=" + Date.now();
     script.async = true;
     script.dataset.characterData = kind;
 
@@ -5327,11 +5327,26 @@ function scheduleIdleDataPrefetch(){
   }
 }
 
-const illustrationsReady = loadAutoIllustrations();
+async function loadManagedMedia(){
+ try{
+  const response=await fetch('data/media.json?v='+Date.now(),{cache:'no-store',signal:AbortSignal.timeout(8000)});
+  if(!response.ok)throw new Error('Media not available');
+  const m=await response.json();
+  if(!['headerImages','selectedWorks','works'].every(k=>Array.isArray(m[k])))throw new Error('Invalid media');
+  const escape=v=>String(v||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const clean=o=>Object.fromEntries(Object.entries(o).map(([k,v])=>[k,escape(v)]));
+  SITE.home.headerImages=m.headerImages.map(clean);SITE.home.selectedWorks=m.selectedWorks.map(clean);SITE.works=m.works;
+ }catch(e){console.warn('既存の画像設定を使用します。',e);await loadAutoIllustrations();}
+}
+const illustrationsReady = loadManagedMedia();
+async function startPortfolio(){
+await illustrationsReady;
 renderSite();
 window.addEventListener("hashchange",showPage);
 showPage();
 scheduleIdleDataPrefetch();
+}
+startPortfolio();
 </script>
 
 </body>
