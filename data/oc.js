@@ -74,14 +74,19 @@ window.OC_CHARACTERS = [
         "embedUrl": "https://www.youtube.com/embed/pdfSRyRZdZ0?si=puHoV4xeCfJucuhR"
       },
       {
-        "title": "MUSIC 02",
-        "artist": "YouTube",
-        "embedUrl": "https://www.youtube.com/embed/pdfSRyRZdZ0?si=puHoV4xeCfJucuhR"
+        "title": "㋰責任集合体",
+        "artist": "超学生/マサラダ",
+        "embedUrl": "https://youtu.be/ETs2wKOtq7s"
       },
       {
-        "title": "MUSIC 03",
-        "artist": "YouTube",
-        "embedUrl": "https://www.youtube.com/embed/pdfSRyRZdZ0?si=puHoV4xeCfJucuhR"
+        "title": "いかないで",
+        "artist": "Eve/友達募集P",
+        "embedUrl": "https://youtu.be/xFbv40GfF2k"
+      },
+      {
+        "title": "Kiss Me,Kill Me",
+        "artist": "ari hicks",
+        "embedUrl": "https://youtu.be/cvn66Q3W5Iw"
       }
     ]
   },
