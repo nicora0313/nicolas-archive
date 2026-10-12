@@ -110,10 +110,10 @@ window.OC_CHARACTERS = [
     "videos": []
   },
   {
-    "name": "NOA",
+    "name": "久喜　賢治",
     "category": "character",
-    "listSub": "",
-    "sub": "ノア / ORIGINAL CHARACTER",
+    "listSub": "Kenji Kuki",
+    "sub": "アイドル創作 / ORIGINAL CHARACTER",
     "age": "18",
     "height": "180 cm",
     "role": "Character",
