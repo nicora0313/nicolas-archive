@@ -3058,213 +3058,30 @@ function renderSite() {
     </a>
   `).join("");
 
-  // --- NEWS自動生成（GitHub最終更新日時版・ここから） ---
-  async function renderNews() {
-    const newsList = document.getElementById("homeNewsList");
-
-    newsList.innerHTML =
-      '<div style="font-size:0.7rem;color:#999;padding:15px 0;">LOADING NEWS...</div>';
-
-    await illustrationsReady;
-
-    const autoNews = [];
-
-    function addNews(date,text,isoDate=""){
-      if(!date || !text) return;
-
-      autoNews.push({
-        date,
-        text,
-        sortAt: isoDate
-          ? new Date(isoDate).getTime()
-          : newsDateTimestamp(date)
-      });
-    }
-
-    // 1. 手動のお知らせは今まで通り使用可能
-    if(Array.isArray(SITE.home.news)){
-      SITE.home.news.forEach(n => {
-        if(n?.date && n?.text){
-          addNews(n.date,n.text);
-        }
-      });
-    }
-
-    /* =====================================================
-       Acode / ローカルプレビュー
-       -----------------------------------------------------
-       GitHubへまだアップしていない変更も確認できるように、
-       SELECTED WORKS / ILLUSTRATION / OC を「今日の日付」で
-       仮NEWS表示します。
-
-       GitHub Pages本番ではこの分岐を通らず、
-       GitHub上の本当の最終更新日時を使用します。
-       ===================================================== */
-    if(isLocalPreview()){
-      const previewDate = getLocalPreviewDate();
-      const previewTimestamp = Date.now();
-
-      if(Array.isArray(SITE.home.selectedWorks)){
-        SITE.home.selectedWorks.forEach(work => {
-          if(!work?.title) return;
-
-          autoNews.push({
-            date: previewDate,
-            text: `【SELECTED WORKS】「${work.title}」を更新しました`,
-            sortAt: previewTimestamp
-          });
-        });
-      }
-
-      if(Array.isArray(SITE.works)){
-        SITE.works.forEach(work => {
-          if(!work?.title) return;
-
-          autoNews.push({
-            date: previewDate,
-            text: `【ILLUSTRATION】「${work.title}」を更新しました`,
-            sortAt: previewTimestamp
-          });
-        });
-      }
-
-      try{
-        const ocData = await loadCharacterData("oc");
-
-        ocData.forEach(character => {
-          if(!character?.name) return;
-
-          autoNews.push({
-            date: previewDate,
-            text: `【OC】「${character.name}」を更新しました`,
-            sortAt: previewTimestamp
-          });
-        });
-      }catch(error){
-        console.warn("LOCAL OC NEWS could not be generated:", error);
-      }
-
-      autoNews.sort((a,b) => (b.sortAt || 0) - (a.sortAt || 0));
-
-      const seen = new Set();
-      const latestNews = autoNews
-        .filter(item => {
-          const key = `${item.date}\n${item.text}`;
-          if(seen.has(key)) return false;
-          seen.add(key);
-          return true;
-        })
-        .slice(0,5);
-
-      if(latestNews.length === 0){
-        newsList.innerHTML =
-          '<div style="font-size:0.7rem;color:#999;padding:15px 0;">NO NEWS</div>';
-        return;
-      }
-
-      newsList.innerHTML = latestNews.map(n => `
-        <div class="home-news-item">
-          <time>${n.date}</time>
-          <span>${n.text}</span>
-        </div>
-      `).join("");
-
-      return;
-    }
-
-    // 2. SELECTED WORKS
-    // imageファイルのGitHub上の最終更新日時を自動取得
-    if(Array.isArray(SITE.home.selectedWorks)){
-      const selectedUpdates = await Promise.all(
-        SITE.home.selectedWorks.map(async work => ({
-          work,
-          isoDate: await getGitHubPathLastUpdated(work?.image)
-        }))
-      );
-
-      selectedUpdates.forEach(({work,isoDate}) => {
-        if(!work?.title || !isoDate) return;
-
-        addNews(
-          formatGitHubNewsDate(isoDate),
-          `【SELECTED WORKS】「${work.title}」を更新しました`,
-          isoDate
-        );
-      });
-    }
-
-    // 3. ILLUSTRATION
-    // full がある場合は高解像度原画、なければ image の最終更新日時を使用
-    if(Array.isArray(SITE.works)){
-      const illustrationUpdates = await Promise.all(
-        SITE.works.map(async work => ({
-          work,
-          isoDate: await getGitHubPathLastUpdated(work?.full || work?.image)
-        }))
-      );
-
-      illustrationUpdates.forEach(({work,isoDate}) => {
-        if(!work?.title || !isoDate) return;
-
-        addNews(
-          formatGitHubNewsDate(isoDate),
-          `【ILLUSTRATION】「${work.title}」を更新しました`,
-          isoDate
-        );
-      });
-    }
-
-    // 4. OC
-    // data/oc.js のコミット差分からキャラ別の最終更新日時を自動判定
+  // Publication history is committed atomically with the edited content.
+  async function renderNews(){
+    const list=document.getElementById('homeNewsList');
+    list.textContent='ニュースを読み込み中…';
     try{
-      const ocData = await loadCharacterData("oc");
-      const ocUpdateDates = await getOcGitHubUpdateDates(ocData);
-
-      ocData.forEach((character,index) => {
-        const isoDate = ocUpdateDates.get(index);
-
-        if(!character?.name || !isoDate) return;
-
-        addNews(
-          formatGitHubNewsDate(isoDate),
-          `【OC】「${character.name}」を更新しました`,
-          isoDate
-        );
-      });
-    }catch(error){
-      console.warn("OC NEWS could not be generated:", error);
-    }
-
-    // 新しい順に並べ、同一内容は重複除去
-    autoNews.sort((a,b) => (b.sortAt || 0) - (a.sortAt || 0));
-
-    const seen = new Set();
-    const latestNews = autoNews
-      .filter(item => {
-        const key = `${item.date}
-${item.text}`;
-        if(seen.has(key)) return false;
-        seen.add(key);
-        return true;
-      })
-      .slice(0,5);
-
-    if(latestNews.length === 0){
-      newsList.innerHTML =
-        '<div style="font-size:0.7rem;color:#999;padding:15px 0;">NO NEWS</div>';
-      return;
-    }
-
-    newsList.innerHTML = latestNews.map(n => `
-      <div class="home-news-item">
-        <time>${n.date}</time>
-        <span>${n.text}</span>
-      </div>
-    `).join("");
+      const response=await fetch('data/news.json?v='+Date.now(),{cache:'no-store',signal:AbortSignal.timeout(8000)});
+      if(response.status===404){list.textContent='お知らせはまだありません。';return;}
+      if(!response.ok)throw new Error('News '+response.status);
+      const data=await response.json();
+      if(!Array.isArray(data))throw new Error('Invalid news');
+      const entries=data.filter(n=>typeof n.text==='string'&&Number.isFinite(Date.parse(n.publishedAt))).sort((a,b)=>Date.parse(b.publishedAt)-Date.parse(a.publishedAt)).slice(0,5);
+      list.replaceChildren();
+      if(!entries.length){list.textContent='お知らせはまだありません。';return;}
+      const dateFormat=new Intl.DateTimeFormat('ja-JP',{timeZone:'Asia/Tokyo',year:'numeric',month:'2-digit',day:'2-digit'});
+      for(const entry of entries){
+        const row=document.createElement('div');row.className='home-news-item';
+        const time=document.createElement('time');time.dateTime=entry.publishedAt;time.textContent=dateFormat.format(new Date(entry.publishedAt)).replaceAll('/','.');
+        const text=document.createElement('span');text.textContent=entry.text;
+        row.append(time,text);list.append(row);
+      }
+    }catch(error){list.textContent='ニュースを読み込めませんでした。再読み込みしてください。';console.warn('News unavailable',error);}
   }
-
   renderNews();
-  // --- NEWS自動生成（GitHub最終更新日時版・ここまで） ---
+
 
   const homeFooterLinks = document.getElementById("homeFooterLinks");
   homeFooterLinks.innerHTML = SITE.socials.map(s => `<a href="${s.url}">${s.label === "✉" ? "MAIL" : s.label}</a>`).join("");
