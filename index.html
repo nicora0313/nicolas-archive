@@ -1848,9 +1848,14 @@ section[data-page="character"] #characterBack + .section-head .title{
 }
 </style>
 <style id="archive-navigation-expanded">
-.archive-nav{flex-wrap:wrap;column-gap:clamp(18px,4vw,48px);row-gap:0;padding:8px 16px}
-.archive-nav a{display:flex;align-items:center;justify-content:center;min-height:44px;white-space:nowrap;font-size:13px}
-@media(max-width:480px){.archive-nav{column-gap:22px;padding:8px 20px}.archive-nav a{font-size:12px;letter-spacing:.03em}}
+/* The persistent navigation replaces the hamburger on every screen size. */
+.topbar .menu-btn{display:none!important}
+.archive-nav{flex-wrap:nowrap;column-gap:clamp(18px,4vw,48px);row-gap:0;padding:8px 16px}
+.archive-nav a{display:flex;flex:0 0 auto;align-items:center;justify-content:center;min-height:44px;white-space:nowrap;font-size:13px}
+@media(max-width:600px){
+ .archive-nav{justify-content:space-between;column-gap:clamp(4px,1.5vw,9px);padding:6px 10px}
+ .archive-nav a{font-size:clamp(10px,2.85vw,13px);letter-spacing:0;padding:10px 0}
+}
 </style>
 </head>
 
