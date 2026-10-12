@@ -3546,7 +3546,7 @@ function renderContactPage(){
 
     <p class="stance-lead">${introData.text || ""}</p>
     <div class="commission-status ${SITE.commissionOpen === true ? "is-open" : "is-closed"}">
-      ${SITE.commissionStatusText || ""}
+      ${managedEscape(SITE.commissionStatusText || "")}
     </div>
   `;
 
@@ -5311,6 +5311,7 @@ function scheduleIdleDataPrefetch(){
   }
 }
 
+function managedEscape(v){return String(v||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
 async function loadManagedMedia(){
  try{
   const response=await fetch('data/media.json?v='+Date.now(),{cache:'no-store',signal:AbortSignal.timeout(8000)});
@@ -5320,6 +5321,10 @@ async function loadManagedMedia(){
   const escape=v=>String(v||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const clean=o=>Object.fromEntries(Object.entries(o).map(([k,v])=>[k,escape(v)]));
   SITE.home.headerImages=m.headerImages.map(clean);SITE.home.selectedWorks=m.selectedWorks.map(clean);SITE.works=m.works;
+  const page=p=>({intro:{eyebrow:escape(p.intro.eyebrow),title:escape(p.intro.title),text:escape(p.intro.text).replace(/\n/g,'<br>'),tags:p.intro.tags.map(escape)},sections:p.sections.map((v,i)=>({no:String(i+1).padStart(2,'0'),title:escape(v.title),jp:escape(v.jp),tone:v.tone==='alert'?'alert':'normal',content:'<p>'+escape(v.text).replace(/\n/g,'<br>')+'</p>'}))});
+  if(m.pages?.stance){window.STANCE_DATA=page(m.pages.stance);stanceRendered=false;}
+  if(m.pages?.contact){const p=m.pages.contact;SITE.contactPage=page(p);SITE.commissionOpen=p.commissionOpen===true;SITE.commissionStatusText=String(p.commissionStatusText||'');SITE.contact=p.links.filter(l=>/^(https?:\/\/|mailto:|#)/i.test(l.url)).map(l=>({label:escape(l.label),url:escape(l.url)}));contactPageRendered=false;}
+
  }catch(e){console.warn('既存の画像設定を使用します。',e);await loadAutoIllustrations();}
 }
 const illustrationsReady = loadManagedMedia();
