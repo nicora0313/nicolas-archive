@@ -1857,6 +1857,192 @@ section[data-page="character"] #characterBack + .section-head .title{
  .archive-nav a{font-size:clamp(10px,2.85vw,13px);letter-spacing:0;padding:10px 0}
 }
 </style>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800;900&family=Noto+Sans+JP:wght@700;900&display=swap" rel="stylesheet">
+<style id="nicolas-blue-redesign">
+/* ============================================================
+   NICOLAS ARCHIVE — BLUE REDESIGN (2026-11-16)
+   原色ブルー #0033FF を主役にする最終テーマ。
+   既存のアニメーション・JS・データ構造は変更しない。
+   ============================================================ */
+:root{
+  --main-color:#0033ff;
+  --blue:#0033ff;
+  --paper:#ffffff;
+  --black:#111111;
+  --gray:#6f6f6f;
+  --light-gray:#e6e6e6;
+  --font-display:"Archivo","Helvetica Neue",Helvetica,Arial,"Noto Sans JP",sans-serif;
+}
+html{overflow-x:hidden}
+body{background:#fff!important;color:#111;overflow-x:hidden}
+::selection{background:var(--blue);color:#fff}
+button:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+
+/* ---- loading ---- */
+#archiveLoading{background:var(--blue)!important;color:#fff!important}
+#archiveLoading .archive-loading-brand,#archiveLoading .archive-loading-title{font-family:var(--font-display);font-weight:900;color:#fff}
+#archiveLoading .archive-loading-status,#archiveLoading .archive-loading-skip{color:rgba(255,255,255,.85)}
+#archiveLoading .archive-loading-skip{border-color:rgba(255,255,255,.7)}
+.archive-loading-mark{border-color:#fff!important}
+.archive-loading-meter{background:rgba(255,255,255,.3)!important}
+.archive-loading-meter::after{background:#fff!important}
+
+/* ---- header / nav ---- */
+.topbar{height:72px;padding:0 max(20px,4vw);background:rgba(255,255,255,.97);border-bottom:1px solid var(--light-gray)}
+.brand{font-family:var(--font-display);font-size:clamp(17px,2.4vw,24px);font-weight:900;letter-spacing:.14em;line-height:1.15;color:#111}
+.brand::after{content:'PORTFOLIO';display:block;font:800 9px var(--font-display);letter-spacing:.42em;margin-top:4px;color:var(--blue)}
+.archive-nav{background:var(--blue);border-bottom:none;padding:0 16px}
+.archive-nav a{color:#fff;font-family:var(--font-display);font-weight:800;letter-spacing:.1em;border-bottom:3px solid transparent}
+.archive-nav a[aria-current=page]{border-color:#fff;background:rgba(0,0,0,.16)}
+.archive-nav a:hover{background:rgba(0,0,0,.16)}
+.drawer{background:var(--blue)}
+.drawer .navitem{font-family:var(--font-display);font-weight:900;color:#fff;letter-spacing:.18em}
+.drawer .navitem::after{background:#fff}
+.drawer .close{color:#fff}
+.drawer .social{background:#fff;color:var(--blue)}
+
+/* ---- hero ---- */
+.home-hero{width:100%;height:92svh;max-height:none;min-height:520px;margin:0 auto;border-radius:0}
+.home-hero-overlay{background:linear-gradient(180deg,rgba(0,10,60,0) 40%,rgba(0,8,50,.52));padding:max(24px,4vw)}
+.home-eyebrow{display:inline-block;background:var(--blue);color:#fff;padding:8px 14px;font-size:.72rem;font-weight:900;letter-spacing:.28em;margin-bottom:18px}
+.home-title{font-family:var(--font-display);font-weight:900;font-size:clamp(64px,13.5vw,168px);letter-spacing:-.015em;line-height:.84;color:#fff;text-transform:uppercase}
+.home-title span{display:block;color:transparent;-webkit-text-stroke:3px #fff}
+.home-tagline-ja{display:inline-block;background:var(--blue);color:#fff;font-weight:900;font-size:clamp(.95rem,2.2vw,1.2rem);letter-spacing:.08em;padding:6px 12px;margin:22px 0 12px}
+.home-description{color:rgba(255,255,255,.92);font-family:var(--font-display);font-weight:600;letter-spacing:.14em;font-size:.78rem;max-width:520px;text-transform:uppercase}
+.home-counter{font-family:var(--font-display);font-weight:900}
+.home-counter-current{color:#fff}.home-counter-total{color:var(--blue);text-shadow:0 0 12px rgba(255,255,255,.65)}
+.home-slider-arrow{border-color:#fff}
+.home-slider-arrow:hover{background:var(--blue)}
+
+/* ---- marquee ---- */
+.blue-marquee{background:var(--blue);color:#fff;overflow:hidden;white-space:nowrap;padding:14px 0;border-block:4px solid #111}
+.blue-marquee-track{display:inline-flex;gap:0;animation:blueMarquee 22s linear infinite;will-change:transform}
+.blue-marquee-track span{font-family:var(--font-display);font-weight:900;font-size:clamp(1rem,2.6vw,1.5rem);letter-spacing:.18em;padding-right:.6em}
+@keyframes blueMarquee{to{transform:translateX(-50%)}}
+
+/* ---- about / name ---- */
+.home-bottom-row{width:min(1240px,calc(100% - 48px));border:none;padding:64px 0 8px;margin:0 auto;gap:48px}
+.home-section-kicker{color:var(--blue);font-weight:900}
+.home-section-kicker::after{background:var(--blue);height:3px;width:64px}
+.home-about-ja{font-weight:700;font-size:1rem}
+.home-about-link,.home-selected-link{color:var(--blue);font-weight:900;border-bottom:3px solid var(--blue);padding-bottom:2px}
+.home-about-image{border-radius:0;outline:4px solid var(--blue);outline-offset:6px}
+.home-name-logo{font-family:var(--font-display);font-weight:900;font-size:clamp(2rem,5vw,3.4rem);letter-spacing:.1em;color:#111}
+.home-name-tags{gap:8px}
+.home-name-tags span,.home-name-tags>*{border:2px solid var(--blue)!important;color:var(--blue);font-weight:900;padding:4px 10px}
+
+/* ---- section heads (HOME) ---- */
+.home-selected,.home-illust{width:min(1240px,calc(100% - 48px));margin:0 auto}
+.home-selected{padding:72px 0 24px}
+.home-selected-head{border-bottom:4px solid #111;padding-bottom:14px;margin-bottom:26px;align-items:center}
+.home-selected-head .label,.home-news .label,.home-illust-head .label{font-family:var(--font-display);font-weight:900;font-size:clamp(1.7rem,5vw,3rem);letter-spacing:.04em;color:#111;line-height:1}
+.home-selected-head .label::before{content:'02';color:var(--blue);margin-right:.35em;font-size:.62em;vertical-align:.45em}
+.home-illust-head .label{color:#fff}
+.home-illust-head .label::before{content:'04';color:#7ea2ff;margin-right:.35em;font-size:.62em;vertical-align:.45em}
+.home-news .label::before{content:'05';color:var(--blue);margin-right:.35em;font-size:.62em;vertical-align:.45em}
+
+/* ---- selected works: horizontal rail ---- */
+.home-selected-grid{display:flex!important;grid-template-columns:none!important;overflow-x:auto;overflow-y:hidden;gap:22px;padding:6px 4px 22px;scroll-snap-type:x mandatory;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch;scrollbar-width:thin;scrollbar-color:var(--blue) #e9edff;cursor:grab}
+.home-selected-grid::-webkit-scrollbar{height:8px}
+.home-selected-grid::-webkit-scrollbar-track{background:#e9edff}
+.home-selected-grid::-webkit-scrollbar-thumb{background:var(--blue)}
+.home-selected-grid.dragging{cursor:grabbing;scroll-snap-type:none}
+.home-work-card{flex:0 0 min(500px,80vw);grid-column:auto!important;grid-row:auto!important;scroll-snap-align:start;display:flex!important}
+.home-work-card:nth-child(n+6){display:flex!important}
+.home-work-thumb{border-radius:0;aspect-ratio:4/3;flex:none;width:100%}
+.home-work-thumb img{transition:transform .5s ease}
+.home-work-card:hover .home-work-thumb img{transform:scale(1.06)}
+.home-work-no{font-family:var(--font-display);font-weight:900;font-size:1.5rem;color:var(--blue)}
+.home-work-text b{font-weight:900;font-size:.95rem}
+.home-work-text small{color:var(--blue);font-weight:900}
+
+/* ---- character CTA (03) ---- */
+.home-char-cta{width:100%;margin:72px 0 0;background:var(--blue);color:#fff;overflow:hidden}
+.home-char-cta-inner{width:min(1240px,calc(100% - 48px));margin:auto;padding:72px 0 80px;position:relative}
+.home-char-cta-kicker{font-family:var(--font-display);font-weight:900;letter-spacing:.3em;font-size:.72rem;margin:0 0 18px;color:#cfe0ff}
+.home-char-cta h2{font-family:var(--font-display);font-weight:900;font-size:clamp(2.6rem,9vw,6.2rem);line-height:.92;letter-spacing:.01em;margin:0 0 20px;text-transform:uppercase}
+.home-char-cta p{margin:0 0 30px;font-weight:700;max-width:560px}
+.home-char-cta-btn{display:inline-flex;align-items:center;gap:12px;background:#fff;color:var(--blue);font-family:var(--font-display);font-weight:900;letter-spacing:.14em;padding:16px 26px;font-size:.85rem;transition:transform .25s ease,background .25s ease}
+.home-char-cta-btn:hover{transform:translateX(6px);background:#111;color:#fff}
+
+/* ---- illustration rail on HOME (04) ---- */
+.home-illust{background:#111;color:#fff;width:100%;max-width:none;margin:0;padding:72px 0 30px}
+.home-illust-head{width:min(1240px,calc(100% - 48px));margin:0 auto 26px;display:flex;justify-content:space-between;align-items:center;border-bottom:4px solid #fff;padding-bottom:14px}
+.home-illust-head a{color:#fff;font-family:var(--font-display);font-weight:900;letter-spacing:.12em;border-bottom:3px solid var(--blue);padding-bottom:2px}
+.home-illust-rail{display:flex;overflow-x:auto;overflow-y:hidden;gap:18px;padding:6px max(24px,calc((100vw - 1240px)/2 + 24px)) 22px;scroll-snap-type:x mandatory;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch;scrollbar-width:thin;scrollbar-color:var(--blue) #222;cursor:grab}
+.home-illust-rail::-webkit-scrollbar{height:8px}
+.home-illust-rail::-webkit-scrollbar-track{background:#222}
+.home-illust-rail::-webkit-scrollbar-thumb{background:var(--blue)}
+.home-illust-rail.dragging{cursor:grabbing;scroll-snap-type:none}
+.home-illust-card{flex:0 0 min(340px,74vw);scroll-snap-align:start;color:#fff}
+.home-illust-card figure{margin:0;aspect-ratio:4/5;overflow:hidden;background:#222}
+.home-illust-card img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.home-illust-card:hover img{transform:scale(1.06)}
+.home-illust-card figcaption{font-family:var(--font-display);font-weight:800;letter-spacing:.1em;font-size:.72rem;margin-top:10px;color:#ddd}
+.home-illust-card figcaption b{color:#7ea2ff;margin-right:.6em}
+
+/* ---- news / CTA (05-06) ---- */
+.home-lower{width:min(1240px,calc(100% - 48px));margin:0 auto;padding:72px 0 80px;grid-template-columns:1.1fr 1fr;gap:48px}
+.home-news-item{border-bottom:2px solid #111;padding:16px 0}
+.home-news-item time{color:var(--blue);font-weight:900;font-family:var(--font-display)}
+.home-cta{border:4px solid #111;border-radius:0;min-height:180px}
+.home-cta-script{font-family:var(--font-display);font-weight:900;font-style:normal;font-size:clamp(1.6rem,3.4vw,2.4rem);letter-spacing:.02em}
+.home-cta--stance{background:var(--blue)!important;color:#fff;border-color:var(--blue)}
+.home-cta--stance .home-cta-bg{display:none!important}
+.home-cta--stance .home-cta-link{border-color:#fff;color:#fff;background:transparent}
+.home-cta--stance .commission-status{color:#fff}
+.home-cta-link{font-weight:900}
+.home-cta-link:hover{background:var(--blue);color:#fff;border-color:var(--blue)}
+.home-cta--stance .home-cta-link:hover{background:#fff;color:var(--blue)}
+
+/* ---- footer ---- */
+.home-homefooter{width:100%;max-width:none;margin:0;background:#111;color:#fff;padding:44px max(24px,4vw) 54px;border-top:8px solid var(--blue);font-family:var(--font-display)}
+.home-homefooter-brand b{font-family:var(--font-display);font-weight:900;color:#fff;font-size:1.3rem}
+.home-homefooter a{color:#fff}
+.home-homefooter-links a{font-weight:800}
+
+/* ---- subpages ---- */
+.view:not([data-page=home]) .title{font-family:var(--font-display)!important;font-weight:900!important;font-size:clamp(2rem,7vw,4rem)!important;letter-spacing:.06em!important;line-height:1.05!important;text-align:left!important;color:#111}
+.view:not([data-page=home]) .title::after{display:block!important;content:'';width:72px;height:8px;background:var(--blue);margin-top:16px}
+.view:not([data-page=home]) .section-head{border-bottom:4px solid #111!important}
+.dot{background:var(--blue)}
+.char .avatar{transition:transform .35s ease,box-shadow .35s ease,border-color .35s ease}
+.char:hover .avatar{transform:translateY(-8px);box-shadow:0 14px 0 rgba(0,51,255,.18);border-color:var(--blue)!important}
+.character-group-tab.active{background:var(--blue);border-color:var(--blue);color:#fff}
+.character-group-tab{border-radius:0;font-family:var(--font-display);font-weight:800}
+.character-category-tab.active{color:var(--blue)}
+.illustration-strip{display:flex!important;grid-template-columns:none!important;overflow-x:auto!important;overflow-y:hidden}
+.illustration-thumb.active{border-color:var(--blue)!important;box-shadow:0 6px 0 rgba(0,51,255,.25)}
+.illustration-tab.active::after{background:var(--blue);height:4px}
+.illustration-subtab.active{background:var(--blue);border-color:var(--blue)}
+.stance-intro-title{font-family:var(--font-display);font-weight:900}
+.stance-summary-title{font-family:var(--font-display);font-weight:800}
+.back::before{color:var(--blue)}
+section[data-page="character"]{--character-color:#0033ff}
+
+/* ---- mobile ---- */
+@media(max-width:700px){
+  .topbar{height:64px;padding:0 16px}
+  .home-hero{width:100%;height:88svh;min-height:460px;margin:0}
+  .home-title{font-size:clamp(56px,17vw,96px)}
+  .home-title span{-webkit-text-stroke:2px #fff}
+  .home-hero-overlay{padding:20px 20px 84px}
+  .home-bottom-row{width:calc(100% - 40px);padding-top:44px}
+  .home-selected,.home-illust-head,.home-char-cta-inner,.home-lower{width:calc(100% - 40px)}
+  .home-selected{padding-top:52px}
+  .home-selected-grid{display:flex!important;grid-template-columns:none!important;overflow-x:auto!important}
+  .home-work-card{flex-basis:80vw;min-width:0}
+  .home-work-thumb,.home-work-card:nth-child(n) .home-work-thumb{aspect-ratio:4/3;height:auto}
+  .home-char-cta-inner{padding:52px 0 60px}
+  .home-illust-rail{padding-left:20px;padding-right:20px}
+  .home-lower{grid-template-columns:1fr;padding-top:52px}
+  .blue-marquee{padding:10px 0}
+}
+@media(prefers-reduced-motion:reduce){.blue-marquee-track{animation:none}}
+</style>
 </head>
 
 <body>
@@ -1963,6 +2149,13 @@ section[data-page="character"] #characterBack + .section-head .title{
         </div>
       </section>
 
+      <div class="blue-marquee" aria-hidden="true">
+        <div class="blue-marquee-track">
+          <span>NICOLAS ARCHIVE ✳ ILLUSTRATION ✳ CHARACTER DESIGN ✳ ORIGINAL ✳ TRPG ✳ PORTFOLIO ✳ </span>
+          <span>NICOLAS ARCHIVE ✳ ILLUSTRATION ✳ CHARACTER DESIGN ✳ ORIGINAL ✳ TRPG ✳ PORTFOLIO ✳ </span>
+        </div>
+      </div>
+
       <div class="home-bottom-row">
         <section class="home-about-card">
           <div class="home-about-image" id="homeAboutImage"></div>
@@ -1996,6 +2189,23 @@ section[data-page="character"] #characterBack + .section-head .title{
           <a class="home-selected-link" href="#works">VIEW ALL →</a>
         </div>
         <div class="home-selected-grid" id="homeSelectedWorks"></div>
+      </section>
+
+      <section class="home-char-cta">
+        <div class="home-char-cta-inner">
+          <p class="home-char-cta-kicker">03 — CHARACTER</p>
+          <h2>Meet the<br>Characters</h2>
+          <p>オリジナルキャラクターとTRPGキャラクターのプロフィールは、キャラクターページにまとめています。</p>
+          <a class="home-char-cta-btn" href="#characters">キャラクターページへ <span aria-hidden="true">→</span></a>
+        </div>
+      </section>
+
+      <section class="home-illust">
+        <div class="home-illust-head">
+          <div class="label">ILLUSTRATION</div>
+          <a href="#works">VIEW ALL →</a>
+        </div>
+        <div class="home-illust-rail" id="homeIllustRail"></div>
       </section>
 
       <div class="home-lower">
@@ -5345,5 +5555,31 @@ const nav=document.querySelector('.archive-nav');
 function sync(){const p=location.hash.slice(1).split('/')[0]||'home';for(const a of nav.querySelectorAll('a')){const active=a.hash==='#'+p||(a.hash==='#characters'&&['character','trpg'].includes(p));if(active)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');}}
 window.addEventListener('hashchange',sync);sync();
 })();
-</script></body>
+</script>
+
+<script>
+(function(){
+  // HOME illustration rail: build from the same data/media.json the gallery uses.
+  var rail=document.getElementById('homeIllustRail');
+  if(rail){
+    fetch('data/media.json',{cache:'no-store'}).then(function(r){return r.ok?r.json():null;}).then(function(m){
+      var works=(m&&Array.isArray(m.works))?m.works:[];
+      if(!works.length){var sec=rail.closest('.home-illust'); if(sec) sec.style.display='none'; return;}
+      rail.innerHTML=works.map(function(w,i){
+        var img=w.image||w.full||''; var title=w.title||('Illustration '+(i+1));
+        return '<a class="home-illust-card" href="#works"><figure><img src="'+img+'" alt="'+title+'" loading="lazy" decoding="async"></figure><figcaption><b>'+String(i+1).padStart(2,'0')+'</b>'+title+'</figcaption></a>';
+      }).join('');
+    }).catch(function(){var sec=rail.closest('.home-illust'); if(sec) sec.style.display='none';});
+  }
+  // Desktop drag-to-scroll for both horizontal rails.
+  document.querySelectorAll('.home-selected-grid,.home-illust-rail').forEach(function(el){
+    var down=false,startX=0,startL=0,moved=false;
+    el.addEventListener('pointerdown',function(e){down=true;moved=false;startX=e.clientX;startL=el.scrollLeft;});
+    el.addEventListener('pointermove',function(e){if(!down)return;var dx=e.clientX-startX;if(Math.abs(dx)>4){moved=true;el.classList.add('dragging');}el.scrollLeft=startL-dx;});
+    ['pointerup','pointercancel','pointerleave'].forEach(function(t){el.addEventListener(t,function(){down=false;setTimeout(function(){el.classList.remove('dragging');},0);});});
+    el.addEventListener('click',function(e){if(moved){e.preventDefault();e.stopPropagation();moved=false;}},true);
+  });
+})();
+</script>
+</body>
 </html>
