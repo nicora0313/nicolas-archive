@@ -5837,5 +5837,38 @@ window.addEventListener('hashchange',sync);sync();
   }
 })();
 </script>
+<script id="nicolas-chara-heightlock">
+/* Lock the character overview height to the Overview tab's height,
+   so switching to Memo/History tabs never shrinks the art panel. */
+(function(){
+  function lock(){
+    var ov = document.getElementById("characterOverview");
+    if(!ov || !ov.offsetParent) return;
+    var panel = document.getElementById("profileOverviewPanel");
+    if(!panel || panel.hidden) return;
+    ov.style.removeProperty("min-height");
+    var h = ov.offsetHeight;
+    if(h > 0) ov.style.setProperty("min-height", h + "px", "important");
+  }
+  function schedule(){
+    requestAnimationFrame(function(){ setTimeout(lock, 60); });
+  }
+  if(typeof renderCharacter === "function"){
+    var orig = renderCharacter;
+    renderCharacter = function(){
+      var r = orig.apply(this, arguments);
+      schedule();
+      setTimeout(lock, 650);
+      return r;
+    };
+  }
+  document.addEventListener("click", function(e){
+    var t = e.target;
+    if(t && t.closest && t.closest('[data-profile-tab="profileOverviewPanel"]')) schedule();
+  });
+  window.addEventListener("resize", schedule);
+  window.addEventListener("load", schedule);
+})();
+</script>
 </body>
 </html>
