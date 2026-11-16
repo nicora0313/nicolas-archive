@@ -2043,6 +2043,62 @@ section[data-page="character"]{--character-color:#0033ff}
 }
 @media(prefers-reduced-motion:reduce){.blue-marquee-track{animation:none}}
 </style>
+<style id="nicolas-chara-kyararium">
+/* ===== Character detail: kyararium layout + per-character color (2026-11-16) ===== */
+#characterOverview{display:grid !important;grid-template-columns:57fr 43fr;gap:0 !important;min-height:640px;height:auto !important;background:#fff !important;border:1px solid #e3e6ea;box-shadow:0 16px 42px rgba(17,17,17,.07);overflow:hidden !important}
+#characterOverview .overview-info{padding:46px 42px !important;height:auto !important;overflow:visible !important;align-self:start}
+#characterOverview .profile-identity{border-left:4px solid var(--character-color) !important;border-bottom:0 !important;padding:2px 0 2px 22px !important;margin-bottom:26px}
+#characterOverview .overview-kicker{color:#9aa1a9 !important;font-size:.62rem !important;letter-spacing:.24em;font-weight:700;margin-bottom:12px}
+#characterOverview .jp{font-size:.88rem !important;color:#6d747c;letter-spacing:.14em;margin:0 0 8px}
+#characterOverview h2{font-family:var(--font-display) !important;font-weight:900;font-size:clamp(2.7rem,5.2vw,4.4rem) !important;line-height:1.05 !important;letter-spacing:.01em}
+#characterOverview .profile-palette{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+#characterOverview .profile-color-chip{display:inline-flex;align-items:center;gap:8px;padding:6px 14px 6px 7px;border:1px solid #dfe3e8;border-radius:999px;background:#fff;color:#333;font-size:.7rem;font-weight:700;letter-spacing:.06em}
+#characterOverview .profile-color-chip i{width:15px;height:15px;border-radius:50%}
+#characterOverview .profile-tabs{display:flex;border-bottom:1px solid #e1e6ea;margin-bottom:24px}
+#characterOverview .profile-tabs button{flex:1;padding:12px 4px;font-size:.84rem;color:#8a9199;background:transparent;border:0;border-bottom:4px solid transparent;margin-bottom:-1px;font-weight:600;cursor:pointer}
+#characterOverview .profile-tabs button[aria-selected="true"]{color:#111 !important;font-weight:800;border-bottom-color:var(--character-color) !important}
+#characterOverview .profile-section-title{display:flex;align-items:center;gap:10px;font-size:.95rem !important;font-weight:900;letter-spacing:.05em;margin:26px 0 16px}
+#characterOverview .profile-section-title::before{content:"";flex:0 0 auto;width:5px;height:20px;background:var(--character-color)}
+#characterOverview .specs{display:grid !important;grid-template-columns:1fr 1fr !important;gap:2px 24px;border-top:0 !important;margin-top:0}
+#characterOverview .spec{display:flex !important;align-items:center;gap:12px;padding:9px 0 !important;border-bottom:1px solid #eef1f4;font-size:.9rem !important;line-height:1.5 !important}
+#characterOverview .spec b{display:inline-block;background:#edf1f6;color:#5b6470;border-radius:999px;padding:4px 12px;font-size:.66rem;font-weight:700;letter-spacing:.08em;min-width:0;white-space:nowrap}
+#characterOverview .spec span{font-weight:700}
+#characterOverview .profile-text{font-size:.92rem !important;line-height:1.9 !important}
+#characterOverview .overview-art{position:relative;min-height:640px;height:auto !important;padding:0 !important;display:block !important;background:#fff !important;border-radius:0;overflow:hidden !important}
+#characterOverview .overview-art::before{content:"";position:absolute;inset:0;background:var(--character-color);clip-path:polygon(13% 0,100% 0,100% 100%,0 100%)}
+#characterOverview .overview-image{position:relative !important;z-index:2;width:100%;height:100% !important;min-height:640px !important;display:grid;place-items:end center}
+#characterOverview .overview-image img{max-height:640px}
+#characterOverview .overview-image svg{max-height:600px}
+#characterOverview .profile-actions{position:absolute !important;z-index:6;left:20px;right:auto;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:20px}
+#characterOverview .profile-action{width:52px !important;height:52px !important;transform:rotate(45deg) !important;background:#fff !important;border:2px solid #111 !important;border-radius:10px !important;color:#111 !important;display:grid;place-items:center;box-shadow:0 7px 18px rgba(0,0,0,.10) !important;cursor:pointer}
+#characterOverview .profile-action svg{transform:rotate(-45deg) !important;width:24px;height:24px}
+#characterOverview .profile-action:hover{background:var(--character-color) !important;border-color:var(--character-color) !important;color:#fff !important}
+.chara-extra{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:34px}
+.chara-radar{border:1px solid #e5e9ee;border-radius:6px;padding:14px 10px 10px}
+.chara-radar svg{width:100%;height:auto;display:block}
+.chara-radar-note{margin:8px 6px 4px;font-size:.68rem;color:#8a9199;line-height:1.7}
+.chara-history-item{display:flex;align-items:baseline;gap:12px;padding:10px 2px;border-bottom:1px solid #eef1f4}
+.chara-history-num{font-weight:900;color:var(--character-color);font-size:.8rem}
+.chara-history-title{font-weight:700;font-size:.86rem;flex:1}
+.chara-history-date{color:#8a9199;font-size:.72rem;white-space:nowrap}
+.chara-history-empty{color:#8a9199;font-size:.82rem}
+#characterHistory .profile-history-item{display:flex;gap:14px;padding:11px 2px;border-bottom:1px solid #eef1f4;align-items:baseline}
+#characterHistory .profile-history-item time{color:#8a9199;font-size:.74rem;white-space:nowrap}
+#characterHistory .profile-history-item span{font-weight:700;font-size:.88rem}
+@media(max-width:860px){
+#characterOverview{grid-template-columns:1fr !important;min-height:0}
+#characterOverview .overview-info{padding:26px 18px 30px !important}
+#characterOverview .profile-identity{padding-left:14px !important;margin-bottom:18px}
+#characterOverview h2{font-size:clamp(2.1rem,9vw,3rem) !important}
+#characterOverview .overview-art{min-height:0;margin:20px 0 6px}
+#characterOverview .overview-art::before{clip-path:polygon(0 7%,100% 0,100% 100%,0 100%)}
+#characterOverview .overview-image{min-height:330px !important;height:330px !important}
+#characterOverview .overview-image img{max-height:330px}
+#characterOverview .profile-actions{left:auto;right:12px;top:12px;transform:none;flex-direction:row;gap:12px}
+#characterOverview .profile-action{width:44px !important;height:44px !important}
+.chara-extra{grid-template-columns:1fr}
+}
+</style>
 </head>
 
 <body>
@@ -4403,7 +4459,7 @@ document.addEventListener("keydown", e => {
 function renderProfileSheet(character,themeColor){
   const palette = document.getElementById("characterPalette");
   palette.replaceChildren();
-  [["image",themeColor],["hair",character.hairColor],["eye",character.eyeColor]].forEach(([label,color]) => {
+  [["イメージ",themeColor],["髪",character.hairColor],["目",character.eyeColor]].forEach(([label,color]) => {
     if(!color || !CSS.supports("color",color)) return;
     const chip = document.createElement("span");
     chip.className = "profile-color-chip";
@@ -5579,6 +5635,78 @@ window.addEventListener('hashchange',sync);sync();
     ['pointerup','pointercancel','pointerleave'].forEach(function(t){el.addEventListener(t,function(){down=false;setTimeout(function(){el.classList.remove('dragging');},0);});});
     el.addEventListener('click',function(e){if(moved){e.preventDefault();e.stopPropagation();moved=false;}},true);
   });
+})();
+</script>
+<script>
+/* Character detail extras: PARAMETERS radar frame + HISTORY summary + mobile art placement (2026-11-16) */
+(function(){
+  var panel = document.getElementById("profileOverviewPanel");
+  var overview = document.getElementById("characterOverview");
+  if(!panel || !overview) return;
+
+  var extra = document.createElement("div");
+  extra.className = "chara-extra";
+  extra.innerHTML =
+    '<div class="chara-extra-box"><h3 class="profile-section-title">PARAMETERS</h3>' +
+    '<div class="chara-radar"><svg viewBox="0 0 200 200" aria-hidden="true">' +
+    '<g fill="none" stroke="#d8dee6" stroke-width="1">' +
+    '<polygon points="190,100 163.6,163.6 100,190 36.4,163.6 10,100 36.4,36.4 100,10 163.6,36.4"/>' +
+    '<polygon points="160,100 142.4,142.4 100,160 57.6,142.4 40,100 57.6,57.6 100,40 142.4,57.6"/>' +
+    '<polygon points="130,100 121.2,121.2 100,130 78.8,121.2 70,100 78.8,78.8 100,70 121.2,78.8"/>' +
+    '<path d="M100 100L190 100M100 100L163.6 163.6M100 100L100 190M100 100L36.4 163.6M100 100L10 100M100 100L36.4 36.4M100 100L100 10M100 100L163.6 36.4"/>' +
+    '</g></svg>' +
+    '<p class="chara-radar-note">能力値データがあるキャラクターでは、ここにレーダーチャートが表示されます。</p></div></div>' +
+    '<div class="chara-extra-box"><h3 class="profile-section-title">HISTORY</h3><div id="charaHistorySummary"></div></div>';
+  panel.appendChild(extra);
+
+  function rebuildHistory(){
+    var src = document.getElementById("characterHistory");
+    var box = document.getElementById("charaHistorySummary");
+    if(!src || !box) return;
+    var rows = src.querySelectorAll(".profile-history-item");
+    box.replaceChildren();
+    if(!rows.length){
+      var p = document.createElement("p");
+      p.className = "chara-history-empty";
+      p.textContent = "まだ記録がありません";
+      box.append(p);
+      return;
+    }
+    rows.forEach(function(row, i){
+      var item = document.createElement("div");
+      item.className = "chara-history-item";
+      var num = document.createElement("span");
+      num.className = "chara-history-num";
+      num.textContent = String(i + 1).padStart(2, "0");
+      var title = document.createElement("span");
+      title.className = "chara-history-title";
+      var t = row.querySelector("span");
+      title.textContent = t ? t.textContent : "";
+      var date = document.createElement("time");
+      date.className = "chara-history-date";
+      var d = row.querySelector("time");
+      date.textContent = d ? d.textContent : "";
+      item.append(num, title, date);
+      box.append(item);
+    });
+  }
+  var hist = document.getElementById("characterHistory");
+  if(hist) new MutationObserver(rebuildHistory).observe(hist, {childList: true});
+  rebuildHistory();
+
+  var info = overview.querySelector(".overview-info");
+  var art = overview.querySelector(".overview-art");
+  var identity = info ? info.querySelector(".profile-identity") : null;
+  if(info && art && identity){
+    var mq = window.matchMedia("(max-width: 860px)");
+    var place = function(){
+      if(mq.matches) identity.after(art);
+      else overview.appendChild(art);
+    };
+    if(mq.addEventListener) mq.addEventListener("change", place);
+    else if(mq.addListener) mq.addListener(place);
+    place();
+  }
 })();
 </script>
 </body>
