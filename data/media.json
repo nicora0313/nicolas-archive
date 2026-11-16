@@ -15,106 +15,106 @@
   ],
   "selectedWorks": [
     {
+      "category": "ORIGINAL",
       "image": "images/selected/selected01.webp",
-      "category": "ORIGINAL",
-      "title": "SELECTED WORK 01",
-      "sub": "Illustration"
+      "sub": "Illustration",
+      "title": "SELECTED WORK 01"
     },
     {
+      "category": "ILLUSTRATION",
       "image": "images/selected/selected02.webp",
-      "category": "ILLUSTRATION",
-      "title": "SELECTED WORK 02",
-      "sub": "Illustration"
+      "sub": "Illustration",
+      "title": "SELECTED WORK 02"
     },
     {
-      "image": "images/selected/selected03.webp",
       "category": "CHARACTER DESIGN",
-      "title": "SELECTED WORK 03",
-      "sub": "Character Design"
+      "image": "images/selected/selected03.webp",
+      "sub": "Character Design",
+      "title": "SELECTED WORK 03"
     },
     {
+      "category": "ORIGINAL",
       "image": "images/selected/selected04.webp",
-      "category": "ORIGINAL",
-      "title": "SELECTED WORK 04",
-      "sub": "Original"
+      "sub": "Original",
+      "title": "SELECTED WORK 04"
     },
     {
-      "image": "images/selected/selected05.webp",
       "category": "ILLUSTRATION",
-      "title": "SELECTED WORK 05",
-      "sub": "Illustration"
+      "image": "images/selected/selected05.webp",
+      "sub": "Illustration",
+      "title": "SELECTED WORK 05"
     },
     {
-      "image": "images/selected/selected06.webp",
       "category": "ORIGINAL",
-      "title": "SELECTED WORK 06",
-      "sub": "Illustration"
+      "image": "images/selected/selected06.webp",
+      "sub": "Illustration",
+      "title": "SELECTED WORK 06"
     }
   ],
   "works": [
     {
-      "title": "Illust1",
-      "year": "Illustration",
-      "group": "oc",
       "category": "rp",
+      "full": "images/illustration/illust1.webp",
+      "group": "oc",
       "image": "images/illustration/illust1.webp",
-      "full": "images/illustration/illust1.webp"
+      "title": "Illust1",
+      "year": "Illustration"
     },
     {
-      "title": "Illust2",
-      "year": "Illustration",
-      "group": "oc",
       "category": "rp",
+      "full": "images/illustration/illust2.webp",
+      "group": "oc",
       "image": "images/illustration/illust2.webp",
-      "full": "images/illustration/illust2.webp"
+      "title": "Illust2",
+      "year": "Illustration"
     },
     {
-      "title": "Illust3",
-      "year": "Illustration",
-      "group": "oc",
       "category": "rp",
+      "full": "images/illustration/illust3.webp",
+      "group": "oc",
       "image": "images/illustration/illust3.webp",
-      "full": "images/illustration/illust3.webp"
+      "title": "Illust3",
+      "year": "Illustration"
     },
     {
-      "title": "Illust4",
-      "year": "Illustration",
-      "group": "oc",
       "category": "rp",
+      "full": "images/illustration/illust4.webp",
+      "group": "oc",
       "image": "images/illustration/illust4.webp",
-      "full": "images/illustration/illust4.webp"
+      "title": "Illust4",
+      "year": "Illustration"
     },
     {
-      "title": "Illust5",
-      "year": "Illustration",
-      "group": "oc",
       "category": "rp",
+      "full": "images/illustration/illust5.webp",
+      "group": "oc",
       "image": "images/illustration/illust5.webp",
-      "full": "images/illustration/illust5.webp"
+      "title": "Illust5",
+      "year": "Illustration"
     },
     {
-      "title": "Illust6",
-      "year": "Illustration",
-      "group": "oc",
       "category": "rp",
+      "full": "images/illustration/illust6.webp",
+      "group": "oc",
       "image": "images/illustration/illust6.webp",
-      "full": "images/illustration/illust6.webp"
+      "title": "Illust6",
+      "year": "Illustration"
     },
     {
-      "title": "Illust7",
-      "year": "Illustration",
-      "group": "oc",
       "category": "rp",
+      "full": "images/illustration/illust7.webp",
+      "group": "oc",
       "image": "images/illustration/illust7.webp",
-      "full": "images/illustration/illust7.webp"
+      "title": "Illust7",
+      "year": "Illustration"
     },
     {
-      "title": "Illust8",
-      "year": "Illustration",
-      "group": "oc",
       "category": "rp",
+      "full": "images/illustration/illust8.webp",
+      "group": "oc",
       "image": "images/illustration/illust8.webp",
-      "full": "images/illustration/illust8.webp"
+      "title": "Illust8",
+      "year": "Illustration"
     }
   ]
 }
