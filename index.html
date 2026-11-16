@@ -2161,6 +2161,18 @@ section[data-page="character"] .title::after{margin-left:0 !important;margin-rig
 #characterHistory .profile-history-item time{font-size:.52rem}
 }
 </style>
+<style id="nicolas-chara-carousel">
+#characterOverview .overview-image .chara-carousel{display:flex;width:100%;height:100%;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+#characterOverview .overview-image .chara-carousel::-webkit-scrollbar{display:none}
+#characterOverview .overview-image .chara-slide{flex:0 0 100%;width:100%;height:100%;scroll-snap-align:center;scroll-snap-stop:always}
+#characterOverview .overview-image .chara-slide img{width:100%;height:100%;object-fit:cover;object-position:50% 6%;display:block}
+#characterOverview .chara-dots{position:absolute;left:50%;transform:translateX(-50%);bottom:12px;display:flex;gap:7px;z-index:5}
+#characterOverview .chara-dot{width:9px;height:9px;border-radius:50%;border:1.5px solid #fff;background:rgba(255,255,255,.35);padding:0;cursor:pointer;box-shadow:0 1px 5px rgba(0,0,0,.25)}
+#characterOverview .chara-dot.on{background:#fff}
+@media(max-width:860px){
+#characterOverview .chara-dots{bottom:8px}
+}
+</style>
 </head>
 
 <body>
@@ -4711,7 +4723,29 @@ function renderCharacter(index, kind="oc") {
       : wardrobePlaceholderSvg(label, themeColor);
   }
 
-  renderPicture(overviewImage, currentDisplayImage, outfits[0].name);
+  let slideImages = [];
+  (c.images || []).forEach(function(src){ if(src && slideImages.indexOf(src) < 0) slideImages.push(src); });
+  outfits.forEach(function(o){ if(o.image && slideImages.indexOf(o.image) < 0) slideImages.push(o.image); });
+
+  function renderCarousel(target, slides, label){
+    if(!slides.length){ renderPicture(target, "", label); return; }
+    target.innerHTML = '<div class="chara-carousel">' +
+      slides.map(function(src){ return '<div class="chara-slide"><img src="' + src + '" alt="' + c.name + '"></div>'; }).join("") +
+      '</div>' +
+      (slides.length > 1 ? '<div class="chara-dots">' + slides.map(function(_, i){ return '<button type="button" class="chara-dot' + (i === 0 ? " on" : "") + '" data-slide="' + i + '" aria-label="画像' + (i + 1) + '"></button>'; }).join("") + '</div>' : '');
+    var track = target.querySelector(".chara-carousel");
+    var dots = target.querySelectorAll(".chara-dot");
+    var go = function(i){ if(track) track.scrollTo({left: track.clientWidth * i, behavior: "smooth"}); };
+    dots.forEach(function(d){ d.addEventListener("click", function(){ go(Number(d.getAttribute("data-slide"))); }); });
+    if(track) track.addEventListener("scroll", function(){
+      var i = Math.round(track.scrollLeft / Math.max(1, track.clientWidth));
+      dots.forEach(function(d, j){ d.classList.toggle("on", i === j); });
+    }, {passive: true});
+    target._carouselGo = go;
+    target._carouselSlides = slides;
+  }
+
+  renderCarousel(overviewImage, slideImages, outfits[0].name);
 
   function renderWardrobe(){
     editor.innerHTML = `
@@ -4767,7 +4801,8 @@ function renderCharacter(index, kind="oc") {
     function setStage(src, label){
       currentDisplayImage = src || "";
       renderPicture(stage, currentDisplayImage, label);
-      renderPicture(overviewImage, currentDisplayImage, label);
+      var slideIndex = overviewImage._carouselSlides ? overviewImage._carouselSlides.indexOf(currentDisplayImage) : -1;
+      if(slideIndex >= 0 && overviewImage._carouselGo) overviewImage._carouselGo(slideIndex);
     }
 
     function renderExpressions(outfit){
