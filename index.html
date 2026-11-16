@@ -2123,6 +2123,44 @@ section[data-page="character"] .title::after{margin-left:0 !important;margin-rig
 #characterOverview .overview-image img{max-height:none !important}
 }
 </style>
+<style id="nicolas-chara-mobilepc">
+@media(max-width:860px){
+#characterOverview{grid-template-columns:57fr 43fr !important;min-height:0 !important}
+#characterOverview .overview-info{padding:18px 10px 20px 12px !important}
+#characterOverview .profile-identity{padding-left:9px !important;margin-bottom:12px;border-left-width:3px !important}
+#characterOverview .overview-kicker{font-size:.5rem !important;margin-bottom:6px;letter-spacing:.14em}
+#characterOverview .jp{font-size:.6rem !important;margin-bottom:5px;letter-spacing:.06em}
+#characterOverview h2{font-size:1.3rem !important}
+#characterOverview .profile-palette{gap:4px;margin-top:9px}
+#characterOverview .profile-color-chip{font-size:.52rem;padding:3px 8px 3px 4px;gap:4px}
+#characterOverview .profile-color-chip i{width:9px;height:9px}
+#characterOverview .profile-tabs{margin-bottom:12px}
+#characterOverview .profile-tabs button{font-size:.6rem;padding:7px 1px;border-bottom-width:3px}
+#characterOverview .profile-section-title{font-size:.66rem !important;margin:14px 0 8px;gap:6px}
+#characterOverview .profile-section-title::before{width:4px;height:14px}
+#characterOverview .specs{gap:0 8px}
+#characterOverview .spec{padding:5px 0 !important;gap:5px;font-size:.58rem !important;line-height:1.4 !important}
+#characterOverview .spec b{font-size:.48rem;padding:2px 6px;letter-spacing:.02em}
+#characterOverview .profile-text{font-size:.6rem !important;line-height:1.75 !important}
+#characterOverview .overview-art{margin:0 !important;min-height:0 !important;height:auto !important}
+#characterOverview .overview-art::before{clip-path:polygon(13% 0,100% 0,100% 100%,0 100%)}
+#characterOverview .overview-image{height:100% !important;min-height:0 !important}
+#characterOverview .profile-actions{left:5px;gap:9px}
+#characterOverview .profile-action{width:29px !important;height:29px !important;border-width:1.5px !important;border-radius:6px !important}
+#characterOverview .profile-action svg{width:14px;height:14px}
+.chara-extra{grid-template-columns:1fr 1fr !important;gap:10px;margin-top:14px}
+.chara-radar{padding:8px 4px 6px}
+.chara-radar-note{font-size:.52rem;margin:5px 2px 2px}
+.chara-history-item{gap:5px;padding:5px 0}
+.chara-history-num{font-size:.55rem}
+.chara-history-title{font-size:.58rem}
+.chara-history-date{font-size:.5rem}
+.chara-history-empty{font-size:.58rem}
+#characterHistory .profile-history-item{gap:7px;padding:6px 0}
+#characterHistory .profile-history-item span{font-size:.6rem}
+#characterHistory .profile-history-item time{font-size:.52rem}
+}
+</style>
 </head>
 
 <body>
@@ -4665,7 +4703,7 @@ function renderCharacter(index, kind="oc") {
   }
 
   let currentOutfit = 0;
-  let currentDisplayImage = outfits[0].image || "";
+  let currentDisplayImage = (c.images && c.images[0]) || outfits[0].image || "";
 
   function renderPicture(target, src, label="NO IMAGE"){
     target.innerHTML = src
@@ -5736,8 +5774,7 @@ window.addEventListener('hashchange',sync);sync();
   if(info && art && identity){
     var mq = window.matchMedia("(max-width: 860px)");
     var place = function(){
-      if(mq.matches) identity.after(art);
-      else overview.appendChild(art);
+      overview.appendChild(art);
     };
     if(mq.addEventListener) mq.addEventListener("change", place);
     else if(mq.addListener) mq.addListener(place);
