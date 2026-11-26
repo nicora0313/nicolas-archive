@@ -2250,11 +2250,11 @@ section[data-page="character"]{--stage-h:clamp(600px,calc(100dvh - 150px),800px)
 #characterOverview .signal-stripe{position:absolute;top:-12%;height:124%;left:57%;width:24%;transform:skewX(-13deg);background:var(--character-color,#2f6bff);box-shadow:-18px 0 44px rgba(0,0,0,.35)}
 #characterOverview .signal-circle{position:absolute;left:43%;top:4%;width:600px;height:600px;border:1px solid rgba(140,140,140,.35);border-radius:50%}
 #characterOverview .signal-circle::after{content:"";position:absolute;inset:54px;border:1px dashed rgba(140,140,140,.28);border-radius:50%}
-#characterOverview .signal-ghost{position:absolute;left:37.5%;bottom:11%;font-weight:900;font-style:italic;font-size:2.75rem;letter-spacing:.04em;color:var(--character-color,#2f6bff);opacity:.35}
+#characterOverview .signal-ghost{position:absolute;left:30%;bottom:9%;font-weight:900;font-style:italic;font-size:2.75rem;letter-spacing:.04em;color:var(--character-color,#2f6bff);opacity:.35}
 #characterOverview .signal-sysline{position:absolute;top:24px;left:46px;font-size:.62rem;letter-spacing:.3em;color:#9a9a9a;z-index:3}
 #characterOverview .signal-sysline b{color:#fff}
 #characterOverview .signal-vtext{position:absolute;right:5px;top:50%;transform:translateY(-50%);writing-mode:vertical-rl;font-size:.5rem;letter-spacing:.42em;color:rgba(0,0,0,.38);z-index:3}
-#characterOverview .signal-allcast{position:absolute;z-index:8;left:56%;bottom:30px;background:var(--signal-accent);color:#fff;text-decoration:none;display:flex;align-items:center;gap:11px;padding:12px 18px;font-weight:900;letter-spacing:.08em;font-size:.9rem;box-shadow:0 12px 26px rgba(0,0,0,.35)}
+#characterOverview .signal-allcast{position:absolute;z-index:8;left:56%;top:calc(var(--stage-h) - 78px);background:var(--signal-accent);color:#fff;text-decoration:none;display:flex;align-items:center;gap:11px;padding:12px 18px;font-weight:900;letter-spacing:.08em;font-size:.9rem;box-shadow:0 12px 26px rgba(0,0,0,.35)}
 #characterOverview .signal-allcast small{font-size:.62rem;font-weight:700;letter-spacing:.14em}
 #characterOverview .signal-allcast-sq{display:grid;grid-template-columns:6px 6px;gap:2px}
 #characterOverview .signal-allcast-sq i{background:#fff;width:6px;height:6px;display:block}
@@ -2269,7 +2269,7 @@ section[data-page="character"]{--stage-h:clamp(600px,calc(100dvh - 150px),800px)
 #characterOverview .signal-btn-txt small{display:block;font-size:.5rem;letter-spacing:.3em;color:#777;font-weight:400}
 #characterOverview .signal-btn-txt b{display:block;font-size:.95rem;letter-spacing:.1em;margin-top:2px}
 #characterOverview .signal-btn-sq{width:46px;background:#0a0a0a;color:var(--character-color,#2f6bff);display:flex;align-items:center;justify-content:center;font-size:1.2rem;font-weight:900}
-#characterOverview .signal-watermark-word{position:absolute;left:26px;bottom:0;font-size:6.5rem;font-weight:900;font-style:italic;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.20);white-space:nowrap;pointer-events:none;line-height:1}
+#characterOverview .signal-watermark-word{position:absolute;left:26px;bottom:0;font-size:5.4rem;font-weight:900;font-style:italic;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.20);white-space:nowrap;pointer-events:none;line-height:1}
 #characterOverview .signal-selectline{position:absolute;left:46px;bottom:14px;font-size:.56rem;letter-spacing:.3em;color:#8a8a8a;display:flex;align-items:center;gap:10px}
 #characterOverview .signal-selectline::before{content:"";width:26px;height:2px;background:var(--character-color,#2f6bff)}
 #characterOverview .overview-art{background:transparent !important;z-index:2}
@@ -2280,7 +2280,7 @@ section[data-page="character"]{--stage-h:clamp(600px,calc(100dvh - 150px),800px)
 #characterOverview .signal-stampwrap i.tr{top:0;right:0;border-top-width:2.5px;border-right-width:2.5px}
 #characterOverview .signal-stampwrap i.bl{bottom:0;left:0;border-bottom-width:2.5px;border-left-width:2.5px}
 #characterOverview .signal-stampwrap i.br{bottom:0;right:0;border-bottom-width:2.5px;border-right-width:2.5px}
-#characterOverview .signal-stamp{position:absolute;inset:14px;border:2px solid var(--character-color,#2f6bff);border-radius:50%;box-shadow:none;background:rgba(255,255,255,.55);color:var(--character-color,#2f6bff);display:flex;align-items:center;justify-content:center;text-align:center;font-size:.8rem;font-weight:900;letter-spacing:.1em;line-height:1.35;transform:rotate(-7deg)}
+#characterOverview .signal-stamp{position:absolute;inset:14px;width:auto;height:auto;border:2px solid var(--character-color,#2f6bff);border-radius:50%;box-shadow:none;background:rgba(255,255,255,.55);color:var(--character-color,#2f6bff);display:flex;align-items:center;justify-content:center;text-align:center;font-size:.8rem;font-weight:900;letter-spacing:.1em;line-height:1.35;transform:rotate(-7deg)}
 #characterOverview .signal-rail{background:transparent;z-index:4;padding:58px 16px 20px 8px;gap:10px;align-items:stretch}
 #characterOverview .signal-railhead{align-self:flex-end;text-align:right;color:#6d6d6d;font-size:.56rem;letter-spacing:.26em;line-height:1.9;margin-bottom:2px}
 #characterOverview .signal-railhead b{color:#2b2b2b}
@@ -2298,6 +2298,7 @@ section[data-page="character"]{--stage-h:clamp(600px,calc(100dvh - 150px),800px)
 #characterOverview .signal-card.sel .signal-card-name{font-size:1.3rem;left:16px;bottom:13px}
 @media(max-width:860px){
 #characterOverview .signal-bg{display:none}
+#characterOverview .signal-allcast{display:none}
 #characterOverview .signal-panel{background:#0b0b0b;padding:30px 22px 26px}
 #characterOverview .signal-name-l2{letter-spacing:.1em}
 #characterOverview .signal-watermark-word{font-size:3.6rem;left:14px}
@@ -2578,10 +2579,10 @@ section[data-page="character"]{--stage-h:clamp(600px,calc(100dvh - 150px),800px)
             <div class="signal-ghost" id="signalGhost">NA—01</div>
             <div class="signal-sysline">/// <b>CHARACTER DATABASE</b> — SELECTION SYSTEM</div>
             <div class="signal-vtext">NICOLAS ARCHIVE / CHARACTER DATABASE — SELECTION SYSTEM</div>
-            <a class="signal-allcast" id="signalAllCast" href="#characters"><span class="signal-allcast-sq"><i></i><i></i><i></i><i></i></span>ALL CAST ↗ <small>全キャラを見る</small></a>
           </div>
+          <a class="signal-allcast" id="signalAllCast" href="#characters"><span class="signal-allcast-sq"><i></i><i></i><i></i><i></i></span>ALL CAST ↗ <small>全キャラを見る</small></a>
           <div class="signal-panel" id="signalPanel">
-            <div class="signal-file">CHARACTER FILE <b id="signalFileNum">001</b> / <span id="signalFileTotal">004</span></div>
+            <div class="signal-file">CHARACTER FILE <b id="signalFileNum">001</b> / <span id="signalFileTotal">006</span></div>
             <h3 class="signal-name"><span class="signal-name-l1" id="signalNameL1"></span><span class="signal-name-l2" id="signalNameL2"></span></h3>
             <div class="signal-jp" id="signalNameJp"></div>
             <div class="signal-sub" id="signalNameSub"></div>
