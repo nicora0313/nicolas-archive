@@ -2,6 +2,7 @@
 <html lang="ja">
 <head>
 
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>NICOLAS | PORTFOLIO</title>
@@ -2375,7 +2376,31 @@ section[data-page="character"]{--stage-h:clamp(600px,calc(100dvh - 150px),800px)
 @media(prefers-reduced-motion:reduce){.cs-stage *,.cs-stage:after,.cs-drawer[open]{animation:none!important;transition:none!important}}
 
 </style>
-<style>.cs-song{background:#dfff39;margin:5px}.cs-song[hidden]{display:none}.cs-dtabs{flex-wrap:wrap}.cs-player{display:block;width:100%;height:auto;aspect-ratio:16/9;border:0;background:#101015;margin:10px 0 16px}.cs-play{color:white;background-size:cover;background-position:center;cursor:pointer;font-size:20px;font-weight:bold}.cs-track-nav{display:flex;align-items:center;gap:12px;margin-top:16px}.cs-track-nav button{padding:6px 10px;cursor:pointer}@media(max-width:760px){.cs-song{display:block;margin:6px 0}}</style></head>
+<style>.cs-song{background:#dfff39;margin:5px}.cs-song[hidden]{display:none}.cs-dtabs{flex-wrap:wrap}.cs-player{display:block;width:100%;height:auto;aspect-ratio:16/9;border:0;background:#101015;margin:10px 0 16px}.cs-play{color:white;background-size:cover;background-position:center;cursor:pointer;font-size:20px;font-weight:bold}.cs-track-nav{display:flex;align-items:center;gap:12px;margin-top:16px}.cs-track-nav button{padding:6px 10px;cursor:pointer}@media(max-width:760px){.cs-song{display:block;margin:6px 0}}</style><style>
+#archiveNav{display:flex;align-items:stretch;background:#111819;border-bottom:1px solid #55605e;padding:0 4%;gap:2px}
+#archiveNav a{font:800 14px/1.2 system-ui,sans-serif;color:#eee;text-decoration:none;padding:15px 18px;text-align:center}
+#archiveNav a[aria-current=page]{background:#dfff38;color:#151a1b}
+#archivePage[hidden],#characterGrid[hidden],#characterGroupTabs[hidden]{display:none!important}
+#archivePage{--lime:#dcff43;background:radial-gradient(ellipse at 8% 0,#243537,#10191b 60%);color:#f2f3ed;padding:clamp(20px,4vw,56px) max(4%,calc((100% - 1150px)/2)) 60px;min-height:58vh;font-family:Arial,system-ui,sans-serif}
+#archivePage *{box-sizing:border-box}
+.arc-heading{margin:0 0 20px!important;font:950 clamp(30px,5.3vw,76px)/1 Arial,sans-serif!important;letter-spacing:-.055em!important;color:white!important}
+.arc-heading span{color:transparent;-webkit-text-stroke:1.2px #f4f6ef}.arc-heading i{color:var(--lime);font-style:normal}
+.arc-bar{display:flex;align-items:center;flex-wrap:wrap;gap:8px;padding:10px 0 15px;border-bottom:1px solid #576664;margin-bottom:16px}
+.arc-bar input,.arc-bar button,.arc-back{font:650 14px/1.4 system-ui,sans-serif;padding:8px 12px;border:1px solid #677375;border-radius:3px}
+.arc-bar input{flex:1 1 200px;min-width:0;background:#f3f3ed;color:#111}.arc-bar button,.arc-back{color:#fff;background:#233134;cursor:pointer}.arc-bar button[aria-pressed=true],.arc-back{background:var(--lime);color:#111}
+.arc-count{font:700 13px monospace;color:#dcff58;margin-bottom:10px}
+.arc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(145px,100%),1fr));gap:12px}.arc-worldgrid{grid-template-columns:repeat(auto-fit,minmax(min(245px,100%),1fr))}
+.arc-card{display:flex;flex-direction:column;background:#f3f2eb;border:1px solid #6b7471;border-radius:5px;color:#171d20;text-decoration:none!important;overflow:hidden;text-align:left;box-shadow:0 4px 0 #080d0d}
+.arc-card:is(:hover,:focus-visible){outline:2px solid var(--lime);outline-offset:2px}
+.arc-photo{display:flex;position:relative;align-items:center;justify-content:center;overflow:hidden;width:100%;aspect-ratio:1.36;background:linear-gradient(120deg,#182122 35%,var(--t,#4f6361));border-bottom:3px solid var(--lime)}
+.arc-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 18%}.arc-photo em{font:900 italic clamp(25px,5vw,64px)/1 Arial;color:#fff9;letter-spacing:-.07em}
+.arc-caption{display:grid;gap:3px;padding:10px;overflow-wrap:anywhere}.arc-caption small{font:700 10px/1.4 monospace;color:#53615f}.arc-caption b{font-size:17px;line-height:1.35}.arc-caption p{font-size:14px;margin:4px 0;line-height:1.55}.arc-worldgrid .arc-photo{aspect-ratio:2.1}
+.arc-back{display:inline-block;text-decoration:none;margin-bottom:14px}
+.arc-banner{border-left:6px solid var(--lime);padding:20px;background:#273236}.arc-banner h2{font-size:clamp(22px,3.5vw,44px);color:white}.arc-banner p,.arc-story p{white-space:pre-line;margin:8px 0;line-height:1.7}
+.arc-sub{font:900 20px/1.3 system-ui,sans-serif;margin:24px 0 12px;color:white}.arc-story{background:#f3f2eb;color:#182023;padding:14px 18px;border-left:5px solid var(--lime);margin-bottom:8px}.arc-story a{color:#244488;text-decoration:underline}
+@media(max-width:600px){#archiveNav{padding:0}#archiveNav a{flex:1;padding:12px 2px;font-size:13px}.arc-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.arc-worldgrid{grid-template-columns:1fr}.arc-worldgrid .arc-photo{aspect-ratio:3}.arc-caption b{font-size:15px}}
+
+</style></head>
 
 <body>
 <style>
@@ -2597,13 +2622,14 @@ section[data-page="character"]{--stage-h:clamp(600px,calc(100dvh - 150px),800px)
         <div class="dot"></div>
         <h1 class="title">OC</h1>
       </div>
+      <nav id="archiveNav" aria-label="キャラクター資料"><a href="#characters">キャラ選択</a><a href="#cast-index">キャラ一覧</a><a href="#worlds">世界観一覧</a></nav><div id="archivePage" hidden></div>
       <div class="character-group-tabs" id="characterGroupTabs">
         <button type="button" class="character-group-tab active" data-character-group="oc">OC</button>
         <button type="button" class="character-group-tab" data-character-group="trpg">TRPG</button>
       </div>
       <div class="character-category-tabs" id="characterCategoryTabs">
-        <button type="button" class="character-category-tab" data-character-category="rp">ORIGINAL RP PROJECT</button>
-        <button type="button" class="character-category-tab active" data-character-category="character">ORIGINAL CHARACTER</button>
+        <button type="button" class="character-category-tab active" data-character-category="rp">ORIGINAL RP PROJECT</button>
+        <button type="button" class="character-category-tab" data-character-category="character">ORIGINAL CHARACTER</button>
       </div>
       <div class="char-grid" id="characterGrid"></div>
     </div>
@@ -4276,7 +4302,7 @@ function characterGridError(kind, error){
 }
 
 let activeCharacterGroup = "oc";
-let activeOcCharacterCategory = "character";
+let activeOcCharacterCategory = "rp";
 
 /* =========================================================
    OC / TRPGのキャラクター一覧を作る処理
@@ -4452,14 +4478,15 @@ function buildCastSelector(grid, kind, category, characters) {
     }
     ["プロフィール","メモ・履歴","作品","MUSIC","MOVIE"].forEach((s,i)=>tabs.append(button(s,()=>page(i))));page(startTab);drawer.showModal();drawer.scrollTop=0;
   }
-  function openRoster(){title.textContent="全キャラクター";tabs.replaceChildren();const group=document.createElement("div");group.className="cs-roster";entries.forEach(({c},i)=>group.append(button(c.name,()=>{choose(i);drawer.close();})));body.replaceChildren(group);drawer.showModal();drawer.scrollTop=0;}
+  function openRoster(){location.hash="cast-index";}
   rail.prepend(nav);const all=button("全キャラを見る",openRoster);all.className="cs-all";rail.append(all);
   const songsButton=button("♫ イメソンを聴く",()=>openFile(3));
   songsButton.className="cs-profile cs-song";
   part("profile").after(songsButton);
   part("profile").onclick=()=>openFile();
   let lastPosition=null;
-  choose(Math.min(selectedCast.get(key)||0,entries.length-1));
+  const initialPosition=Math.min(selectedCast.get(key)||0,entries.length-1);
+  choose(initialPosition);
 }
 async function renderCharacterGrid(kind=activeCharacterGroup){
   const request=++castRequest, grid=document.getElementById("characterGrid"), category=activeOcCharacterCategory;
@@ -5808,9 +5835,95 @@ function showCharacterLoadingState(){
   if(image) image.innerHTML = "";
 }
 
+// WORLD_CATALOG stores world descriptions, optional covers, stories and cast links.
+// Members use the original data-file indices, e.g. "oc:0". Optional character.worldId also links a member.
+const WORLD_CATALOG=[
+  {id:"rp",name:"ORIGINAL RP PROJECT",summary:"RP企画に登録されているキャラクターをまとめたページ。",group:"rp",stories:[]},
+  {id:"oc",name:"ORIGINAL CHARACTER",summary:"オリジナルキャラクターの資料をまとめたページ。",group:"character",stories:[]},
+  {id:"trpg",name:"TRPG",summary:"TRPGの探索者・プレイヤーキャラクターの資料をまとめたページ。",group:"trpg",stories:[]}
+];
+const archiveSearch={query:"",kind:"all"};
+function archiveNode(tag,cls,text){
+  const node=document.createElement(tag);if(cls)node.className=cls;if(text!=null)node.textContent=text;return node;
+}
+function archivePicture(src,label,color){
+  const box=archiveNode("div","arc-photo");
+  if(color && CSS.supports("color",color))box.style.setProperty("--t",color);
+  const letters=String(label||"").trim().split(/\s+/).slice(0,2).map(s=>Array.from(s)[0]).join("");
+  box.append(archiveNode("em","",letters));
+  if(src){const img=new Image();img.alt="";img.loading="lazy";img.src=src;img.onerror=()=>img.remove();box.append(img);}
+  return box;
+}
+function archivePortrait(c){return c.icon || c.images?.find(Boolean) || c.outfits?.find(o=>o?.image)?.image || "";}
+function archiveCard(entry){
+  const {c,kind,index}=entry, a=archiveNode("a","arc-card"), cap=archiveNode("div","arc-caption");
+  a.href="#cast/"+kind+"/"+index;
+  cap.append(archiveNode("small","",kind.toUpperCase()),archiveNode("b","",c.name),archiveNode("small","",c.listSub||""));
+  a.append(archivePicture(archivePortrait(c),c.listSub||c.name,c.themeColor),cap);return a;
+}
+function worldMembers(world,entries){
+  return entries.filter(({c,kind,index})=>{
+    if(world.members?.includes(kind+":"+index))return true;
+    if(c.worldId)return c.worldId===world.id;
+    return world.group===(kind==="trpg"?"trpg":c.category||"character");
+  });
+}
+function archiveHeading(first,last){
+  const h=archiveNode("h2","arc-heading",first+" ");h.append(archiveNode("span","",last),archiveNode("i","","."));return h;
+}
+async function showArchive(route,token){
+  const root=document.getElementById("archivePage");
+  root.replaceChildren(archiveNode("p","","読み込み中…"));
+  const kinds=["oc","trpg"];
+  const results=await Promise.allSettled(kinds.map(loadCharacterData));
+  if(token!==navigationSequence)return;
+  const entries=results.flatMap((r,i)=>r.status==="fulfilled"?r.value.map((c,index)=>({c,index,kind:kinds[i]})):[]);
+  root.replaceChildren();
+  results.forEach((r,i)=>{if(r.status==="rejected")root.append(archiveNode("p","",kinds[i].toUpperCase()+"のデータを読み込めませんでした。"));});
+  if(route.mode==="cast-index"){
+    const bar=archiveNode("div","arc-bar"),input=archiveNode("input"),count=archiveNode("p","arc-count"),grid=archiveNode("div","arc-grid");
+    input.type="search";input.placeholder="名前・読み・作品名で検索";input.setAttribute("aria-label",input.placeholder);input.value=archiveSearch.query;bar.append(input);
+    function paint(){
+      const q=archiveSearch.query.normalize("NFKC").trim().toLowerCase();
+      const matches=entries.filter(({c,kind})=>(archiveSearch.kind==="all"||archiveSearch.kind===kind)&&[c.name,c.listSub,c.sub,c.role].join(" ").normalize("NFKC").toLowerCase().includes(q));
+      grid.replaceChildren(...matches.map(archiveCard));count.textContent=matches.length+" 人";
+      if(!matches.length)grid.append(archiveNode("p","","該当するキャラクターはいません。"));
+      bar.querySelectorAll("button").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.kind===archiveSearch.kind)));
+    }
+    input.oninput=()=>{archiveSearch.query=input.value;paint();};
+    [["all","すべて"],["oc","OC"],["trpg","TRPG"]].forEach(([v,label])=>{const b=archiveNode("button","",label);b.type="button";b.dataset.kind=v;b.onclick=()=>{archiveSearch.kind=v;paint();};bar.append(b);});
+    root.append(archiveHeading("ALL","CHARACTERS"),bar,count,grid);paint();return;
+  }
+  const world=WORLD_CATALOG.find(w=>w.id===route.world);
+  if(!world){
+    root.append(archiveHeading("WORLD","SELECT"));
+    const grid=archiveNode("div","arc-grid arc-worldgrid");root.append(grid);
+    for(const w of WORLD_CATALOG){
+      const members=worldMembers(w,entries),cover=w.cover||members.map(e=>archivePortrait(e.c)).find(Boolean);
+      const a=archiveNode("a","arc-card"),cap=archiveNode("div","arc-caption");a.href="#worlds/"+encodeURIComponent(w.id);
+      cap.append(archiveNode("small","",members.length+" CAST"),archiveNode("b","",w.name),archiveNode("p","",w.summary));
+      a.append(archivePicture(cover,w.name,members[0]?.c.themeColor),cap);grid.append(a);
+    }return;
+  }
+  const back=archiveNode("a","arc-back","世界観一覧に戻る");back.href="#worlds";root.append(back);
+  const banner=archiveNode("div","arc-banner");banner.append(archiveNode("h2","",world.name),archiveNode("p","",world.description||world.summary));root.append(banner);
+  root.append(archiveNode("h3","arc-sub","STORY FILES ／ ストーリー"));
+  if(!world.stories?.length)root.append(archiveNode("p","","ストーリーはまだ登録されていません。"));
+  for(const story of world.stories||[]){
+    const box=archiveNode("article","arc-story");box.append(archiveNode("strong","",story.title),archiveNode("p","",story.summary));
+    if(/^https?:\/\//i.test(story.url||"")){const a=archiveNode("a","","ストーリーを開く");a.href=story.url;a.target="_blank";a.rel="noopener";box.append(a);}
+    root.append(box);
+  }
+  const people=archiveNode("div","arc-grid"),members=worldMembers(world,entries);people.append(...members.map(archiveCard));root.append(archiveNode("h3","arc-sub","CONNECTED CAST ／ 関連キャラ"),people);
+}
+
 function getRouteFromHash(){
   const hash = location.hash || "#home";
   const page = hash.slice(1);
+  if(page==="cast-index")return {target:"characters",mode:page};
+  if(page==="worlds" || page.startsWith("worlds/"))return {target:"characters",mode:"worlds",world:page.slice(7)};
+  const file=page.match(/^cast\/(oc|trpg)\/(\d+)$/);
+  if(file)return {target:"characters",group:file[1],index:Number(file[2])};
 
   if(page.startsWith("oc-character-")){
     return {
@@ -5847,6 +5960,15 @@ function getRouteFromHash(){
 async function showPage(){
   const token = ++navigationSequence;
   const route = getRouteFromHash();
+  const selectorHome=location.hash==="#characters";
+  if(selectorHome){
+    selectedCast.delete("oc:rp");
+    activeOcCharacterCategory="rp";
+    route.group="oc";
+    syncCharacterTabs("oc");
+    document.querySelectorAll("[data-character-category]").forEach(b=>b.classList.toggle("active",b.dataset.characterCategory==="rp"));
+  }
+  document.querySelectorAll(".cs-drawer[open],.cs-light[open]").forEach(d=>d.close());
 
   /* 開いているメディアがある時だけ停止 */
   pauseVisibleCharacterMedia();
@@ -5919,9 +6041,35 @@ async function showPage(){
     return;
   }
 
-  /* OC / TRPG 一覧 */
   if(route.target === "characters"){
-    void renderCharacterGrid(activeCharacterGroup);
+    const mode=route.mode || "characters";
+    const archive=Boolean(route.mode);
+    document.querySelectorAll("#archiveNav a").forEach(a=>{
+      if(a.getAttribute("href")==="#"+mode)a.setAttribute("aria-current","page");else a.removeAttribute("aria-current");
+    });
+    document.getElementById("archivePage").hidden=!archive;
+    document.getElementById("characterGroupTabs").hidden=archive;
+    document.getElementById("characterCategoryTabs").hidden=archive || activeCharacterGroup!=="oc";
+    document.getElementById("characterGrid").hidden=archive;
+    if(archive){++castRequest;await showArchive(route,token);return;}
+    if(route.index!==undefined){
+      try{
+        const records=await loadCharacterData(route.group);
+        if(token!==navigationSequence)return;
+        const c=records[route.index];
+        if(c){
+          syncCharacterTabs(route.group);
+          if(route.group==="oc")activeOcCharacterCategory=c.category||"character";
+          document.querySelectorAll("[data-character-category]").forEach(b=>b.classList.toggle("active",b.dataset.characterCategory===activeOcCharacterCategory));
+          const filtered=records.filter(item=>route.group==="trpg" || (item.category||"character")===activeOcCharacterCategory);
+          selectedCast.set(route.group+":"+activeOcCharacterCategory,filtered.indexOf(c));
+          await renderCharacterGrid(route.group);
+          if(token===navigationSequence)document.querySelector("#characterGrid .cs-profile")?.click();
+          return;
+        }
+      }catch(error){console.error(error);}
+    }
+    if(token===navigationSequence)void renderCharacterGrid(activeCharacterGroup);
     return;
   }
 
@@ -5971,6 +6119,12 @@ const illustrationsReady = loadManagedMedia();
 async function startPortfolio(){
 await illustrationsReady;
 renderSite();
+document.addEventListener("click",event=>{
+  if(location.hash==="#characters" && event.target.closest('a[href="#characters"]') && !event.ctrlKey && !event.metaKey && !event.shiftKey && !event.altKey){
+    event.preventDefault();
+    showPage();
+  }
+});
 window.addEventListener("hashchange",showPage);
 showPage();
 window.finishArchiveLoading?.();
