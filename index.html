@@ -2193,6 +2193,53 @@ section[data-page="character"] .title::after{margin-left:0 !important;margin-rig
 #characterOverview .overview-image img{width:100% !important;height:100% !important;max-height:none !important;object-fit:cover;object-position:50% 6%}
 }
 </style>
+<style id="nicolas-chara-signal">
+/* ===== Character intro stage: CAST-style redesign (2026-11-26) ===== */
+section[data-page="character"]{--signal-accent:#0033FF}
+#characterOverview{grid-template-columns:minmax(330px,44%) minmax(0,1fr) 64px !important;grid-template-areas:"panel art rail" "info info info" !important;grid-template-rows:clamp(560px,calc(100dvh - 170px),780px) auto !important;align-items:stretch !important}
+#characterOverview .signal-panel{grid-area:panel;position:relative;z-index:3;background:#0b0b0b;color:#fff;padding:46px 40px 38px;display:flex;flex-direction:column;min-width:0}
+#characterOverview .signal-file{font-size:.78rem;letter-spacing:.18em;color:#bdbdbd;font-weight:600}
+#characterOverview .signal-file b{color:#fff}
+#characterOverview .signal-file::before{content:"";display:block;width:44px;height:3px;background:var(--signal-accent);margin-bottom:14px}
+#characterOverview .signal-name{margin-top:24px;line-height:.96;font-family:var(--font-display);font-weight:900;letter-spacing:.01em;text-transform:uppercase}
+#characterOverview .signal-name-l1{display:block;font-size:clamp(2.6rem,4.6vw,4.4rem);color:#fff}
+#characterOverview .signal-name-l2{display:block;font-size:clamp(2.6rem,4.6vw,4.4rem);color:transparent;-webkit-text-stroke:2px #fff}
+#characterOverview .signal-jp{margin-top:16px;font-size:1.25rem;font-weight:800;color:#fff}
+#characterOverview .signal-sub{margin-top:5px;font-size:.72rem;color:#9a9a9a;letter-spacing:.08em}
+#characterOverview .signal-voice{margin-top:32px}
+#characterOverview .signal-voice h4{font-size:.7rem;letter-spacing:.24em;color:var(--signal-accent);margin-bottom:9px;font-weight:800}
+#characterOverview .signal-voice p{font-size:1.12rem;font-weight:700;line-height:1.55;color:#fff}
+#characterOverview .signal-intro{margin-top:22px;border-left:4px solid var(--character-color,#2f6bff);padding-left:14px;font-size:.86rem;line-height:1.9;color:#ddd}
+#characterOverview .signal-meta{margin-top:14px;font-size:.74rem;color:#9a9a9a;letter-spacing:.06em}
+#characterOverview .signal-profile-btn{margin-top:auto;align-self:flex-start;background:none;border:0;border-bottom:2px solid var(--signal-accent);color:#fff;font-size:.82rem;letter-spacing:.14em;padding:8px 2px;cursor:pointer;font-weight:700;font-family:inherit}
+#characterOverview .overview-art{grid-area:art;position:relative;z-index:1;background:#f4f4f2;min-height:0 !important;height:auto !important}
+#characterOverview .overview-art::before{content:"";position:absolute;z-index:1;left:-34px;top:-6%;width:92px;height:112%;background:var(--character-color,#2f6bff);transform:skewX(-14deg);clip-path:none;box-shadow:6px 0 18px rgba(0,0,0,.12)}
+#characterOverview .overview-image{position:relative;z-index:2;height:100%}
+#characterOverview .overview-image .chara-slide img{object-fit:contain;object-position:50% 100%;filter:drop-shadow(0 18px 22px rgba(0,0,0,.22))}
+#characterOverview .signal-watermark{position:absolute;z-index:0;right:4%;top:2%;font-family:var(--font-display);font-weight:900;font-style:italic;font-size:clamp(120px,17vw,280px);line-height:1;color:rgba(0,0,0,.055);pointer-events:none;user-select:none}
+#characterOverview .signal-stamp{position:absolute;z-index:6;top:26px;right:26px;width:76px;height:76px;border:2px solid var(--signal-accent);border-radius:50%;box-shadow:inset 0 0 0 4px #f4f4f2,inset 0 0 0 6px var(--signal-accent);display:flex;align-items:center;justify-content:center;text-align:center;font-size:.66rem;font-weight:800;letter-spacing:.12em;line-height:1.5;color:#111;background:rgba(255,255,255,.72);transform:rotate(-8deg);pointer-events:none}
+#characterOverview .overview-info{grid-area:info;align-self:start;width:100%;border-top:1px solid #e3e6ea}
+#characterOverview .overview-info h2{font-size:clamp(2rem,3.6vw,3.2rem) !important}
+#characterOverview .signal-rail{grid-area:rail;position:relative;z-index:4;background:#0b0b0b;display:flex;flex-direction:column;align-items:center;gap:12px;padding:14px 0;overflow-y:auto;overflow-x:hidden}
+#characterOverview .signal-rail-item{display:flex;flex-direction:column;align-items:center;gap:5px;flex:0 0 auto}
+#characterOverview .signal-rail-item button{width:48px;height:64px;border:2px solid #333;background:#222;padding:0;cursor:pointer;overflow:hidden;display:block}
+#characterOverview .signal-rail-item button.on{border-color:var(--signal-accent)}
+#characterOverview .signal-rail-item img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
+#characterOverview .signal-rail-ph{display:flex;align-items:center;justify-content:center;width:100%;height:100%;color:#888;font-weight:800;font-size:1.1rem}
+#characterOverview .signal-rail-name{font-size:.6rem;color:#9a9a9a;text-align:center;line-height:1.25;max-width:60px;word-break:break-all}
+@media(max-width:860px){
+#characterOverview{grid-template-columns:1fr !important;grid-template-areas:"panel" "art" "rail" "info" !important;grid-template-rows:auto auto auto auto !important}
+#characterOverview .signal-panel{padding:30px 22px 26px}
+#characterOverview .signal-name-l1,#characterOverview .signal-name-l2{font-size:2.6rem}
+#characterOverview .signal-name-l2{-webkit-text-stroke-width:1.6px}
+#characterOverview .overview-art{height:min(118vw,520px) !important;min-height:0 !important;order:0}
+#characterOverview .overview-art::before{width:52px;left:-16px}
+#characterOverview .signal-watermark{font-size:130px}
+#characterOverview .signal-stamp{width:62px;height:62px;top:14px;right:14px;font-size:.58rem}
+#characterOverview .signal-rail{flex-direction:row;justify-content:flex-start;overflow-x:auto;overflow-y:hidden;padding:10px 12px;gap:10px}
+#characterOverview .overview-image .chara-slide img{object-fit:contain !important;object-position:50% 100%}
+}
+</style>
 </head>
 
 <body>
@@ -2452,6 +2499,19 @@ section[data-page="character"] .title::after{margin-left:0 !important;margin-rig
       </div>
       <div class="detail">
         <div class="character-overview" id="characterOverview">
+          <div class="signal-panel" id="signalPanel">
+            <div class="signal-file">CHARACTER FILE <b id="signalFileNum">001</b> / <span id="signalFileTotal">004</span></div>
+            <h3 class="signal-name"><span class="signal-name-l1" id="signalNameL1"></span><span class="signal-name-l2" id="signalNameL2"></span></h3>
+            <div class="signal-jp" id="signalNameJp"></div>
+            <div class="signal-sub" id="signalNameSub"></div>
+            <div class="signal-voice" id="signalVoice" hidden>
+              <h4>VOICE LINE</h4>
+              <p id="signalVoiceText"></p>
+            </div>
+            <p class="signal-intro" id="signalIntro"></p>
+            <div class="signal-meta" id="signalMeta"></div>
+            <button class="signal-profile-btn" id="signalProfileBtn" type="button">CHARACTER PROFILE ↓</button>
+          </div>
           <div class="overview-info">
             <header class="profile-identity">
               <div class="overview-kicker">CHARACTER PROFILE</div>
@@ -2494,7 +2554,10 @@ section[data-page="character"] .title::after{margin-left:0 !important;margin-rig
               </button>
             </div>
             <div class="overview-image" id="characterImage"></div>
+            <div class="signal-watermark" id="signalWatermark" aria-hidden="true">01</div>
+            <div class="signal-stamp" id="signalStamp" aria-hidden="true">FILE<br>001</div>
           </div>
+          <nav class="signal-rail" id="signalRail" aria-label="キャラクター切り替え"></nav>
         </div>
         <div class="wardrobe-editor" id="wardrobeEditor" hidden></div>
         <div class="artwork-viewer" id="artworkViewer" hidden></div>
@@ -5837,37 +5900,92 @@ window.addEventListener('hashchange',sync);sync();
   }
 })();
 </script>
-<script id="nicolas-chara-heightlock">
-/* Lock the character overview height to the Overview tab's height,
-   so switching to Memo/History tabs never shrinks the art panel. */
+<script id="nicolas-chara-signal">
+/* Character intro stage (CAST-style): fills the black panel, stamp, watermark and switch rail. */
 (function(){
-  function lock(){
-    var ov = document.getElementById("characterOverview");
-    if(!ov || !ov.offsetParent) return;
-    var panel = document.getElementById("profileOverviewPanel");
-    if(!panel || panel.hidden) return;
-    ov.style.removeProperty("min-height");
-    var h = ov.offsetHeight;
-    if(h > 0) ov.style.setProperty("min-height", h + "px", "important");
+  function pad(n, l){ return String(n).padStart(l, "0"); }
+  function thumbFor(c){
+    if(c.icon) return c.icon;
+    if(Array.isArray(c.images) && c.images[0]) return c.images[0];
+    if(Array.isArray(c.outfits) && c.outfits[0] && c.outfits[0].image) return c.outfits[0].image;
+    return "";
   }
-  function schedule(){
-    requestAnimationFrame(function(){ setTimeout(lock, 60); });
+  function fill(index, kind){
+    var chars = (typeof CHARACTER_DATA !== "undefined" && Array.isArray(CHARACTER_DATA[kind])) ? CHARACTER_DATA[kind] : [];
+    var c = chars[index] || chars[0];
+    if(!c) return;
+    var idx = chars.indexOf(c);
+    var num = pad(idx + 1, 3), tot = pad(chars.length, 3);
+    function set(id, txt){ var el = document.getElementById(id); if(el) el.textContent = txt; }
+    set("signalFileNum", num);
+    set("signalFileTotal", tot);
+    var en = String(c.listSub || "").trim().split(/\s+/).filter(Boolean);
+    set("signalNameL1", en[0] || "");
+    var l2 = document.getElementById("signalNameL2");
+    if(l2){ l2.textContent = en.slice(1).join(" "); l2.style.display = en.length > 1 ? "" : "none"; }
+    set("signalNameJp", c.name || "");
+    set("signalNameSub", c.sub || "");
+    var voice = document.getElementById("signalVoice");
+    if(voice){
+      var v = String(c.voiceLine || "").trim();
+      voice.hidden = !v;
+      if(v) set("signalVoiceText", v);
+    }
+    set("signalIntro", c.text || "");
+    var meta = [];
+    if(c.age) meta.push(c.age + "歳");
+    if(c.height) meta.push(c.height);
+    if(c.role) meta.push(c.role);
+    set("signalMeta", meta.join("・"));
+    set("signalWatermark", pad(idx + 1, 2));
+    var stamp = document.getElementById("signalStamp");
+    if(stamp) stamp.innerHTML = "FILE<br>" + num;
+    var rail = document.getElementById("signalRail");
+    if(rail){
+      rail.replaceChildren();
+      var cfg = (typeof CHARACTER_DATA_CONFIG !== "undefined") ? CHARACTER_DATA_CONFIG[kind] : null;
+      chars.forEach(function(ch, i){
+        var item = document.createElement("div");
+        item.className = "signal-rail-item";
+        var btn = document.createElement("button");
+        btn.type = "button";
+        if(i === idx) btn.className = "on";
+        btn.setAttribute("aria-label", (ch.name || "") + "を表示");
+        var src = thumbFor(ch);
+        if(src){
+          var img = document.createElement("img");
+          img.src = src; img.alt = ""; img.loading = "lazy";
+          btn.appendChild(img);
+        } else {
+          var ph = document.createElement("span");
+          ph.className = "signal-rail-ph";
+          ph.textContent = String(ch.name || "?").slice(0, 1);
+          btn.appendChild(ph);
+        }
+        btn.addEventListener("click", function(){
+          if(i !== idx && cfg) location.hash = "#" + cfg.detailPrefix + "-" + i;
+        });
+        var nm = document.createElement("span");
+        nm.className = "signal-rail-name";
+        nm.textContent = ch.name || "";
+        item.append(btn, nm);
+        rail.appendChild(item);
+      });
+    }
   }
   if(typeof renderCharacter === "function"){
     var orig = renderCharacter;
-    renderCharacter = function(){
+    renderCharacter = function(index, kind){
       var r = orig.apply(this, arguments);
-      schedule();
-      setTimeout(lock, 650);
+      fill(index, kind || "oc");
       return r;
     };
   }
-  document.addEventListener("click", function(e){
-    var t = e.target;
-    if(t && t.closest && t.closest('[data-profile-tab="profileOverviewPanel"]')) schedule();
+  var pb = document.getElementById("signalProfileBtn");
+  if(pb) pb.addEventListener("click", function(){
+    var info = document.querySelector("#characterOverview .overview-info");
+    if(info) info.scrollIntoView({behavior: "smooth", block: "start"});
   });
-  window.addEventListener("resize", schedule);
-  window.addEventListener("load", schedule);
 })();
 </script>
 </body>
