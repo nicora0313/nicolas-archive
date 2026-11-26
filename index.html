@@ -5835,13 +5835,34 @@ function showCharacterLoadingState(){
   if(image) image.innerHTML = "";
 }
 
-// WORLD_CATALOG stores world descriptions, optional covers, stories and cast links.
+// WORLD_CATALOG は data/worlds.js（管理アプリで編集）から読み込みます。
 // Members use the original data-file indices, e.g. "oc:0". Optional character.worldId also links a member.
-const WORLD_CATALOG=[
+// ↓は data/worlds.js を読み込めなかった場合の予備の初期値です。
+let WORLD_CATALOG=[
   {id:"rp",name:"ORIGINAL RP PROJECT",summary:"RP企画に登録されているキャラクターをまとめたページ。",group:"rp",stories:[]},
   {id:"oc",name:"ORIGINAL CHARACTER",summary:"オリジナルキャラクターの資料をまとめたページ。",group:"character",stories:[]},
   {id:"trpg",name:"TRPG",summary:"TRPGの探索者・プレイヤーキャラクターの資料をまとめたページ。",group:"trpg",stories:[]}
 ];
+let worldCatalogPromise=null;
+function loadWorldCatalog(){
+  if(window.WORLD_CATALOG_DATA){
+    WORLD_CATALOG=window.WORLD_CATALOG_DATA;
+    return Promise.resolve(WORLD_CATALOG);
+  }
+  if(worldCatalogPromise) return worldCatalogPromise;
+  worldCatalogPromise=new Promise(resolve=>{
+    const script=document.createElement("script");
+    script.src="data/worlds.js";
+    script.async=true;
+    script.onload=()=>{
+      if(Array.isArray(window.WORLD_CATALOG_DATA)) WORLD_CATALOG=window.WORLD_CATALOG_DATA;
+      resolve(WORLD_CATALOG);
+    };
+    script.onerror=()=>{ worldCatalogPromise=null; resolve(WORLD_CATALOG); };
+    document.head.appendChild(script);
+  });
+  return worldCatalogPromise;
+}
 const archiveSearch={query:"",kind:"all"};
 function archiveNode(tag,cls,text){
   const node=document.createElement(tag);if(cls)node.className=cls;if(text!=null)node.textContent=text;return node;
@@ -5874,6 +5895,7 @@ function archiveHeading(first,last){
 async function showArchive(route,token){
   const root=document.getElementById("archivePage");
   root.replaceChildren(archiveNode("p","","読み込み中…"));
+  await loadWorldCatalog();
   const kinds=["oc","trpg"];
   const results=await Promise.allSettled(kinds.map(loadCharacterData));
   if(token!==navigationSequence)return;
