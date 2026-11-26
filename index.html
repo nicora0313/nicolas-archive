@@ -2250,7 +2250,7 @@ section[data-page="character"]{--stage-h:clamp(600px,calc(100dvh - 150px),800px)
 #characterOverview .signal-stripe{position:absolute;top:-12%;height:124%;left:57%;width:24%;transform:skewX(-13deg);background:var(--character-color,#2f6bff);box-shadow:-18px 0 44px rgba(0,0,0,.35)}
 #characterOverview .signal-circle{position:absolute;left:43%;top:4%;width:600px;height:600px;border:1px solid rgba(140,140,140,.35);border-radius:50%}
 #characterOverview .signal-circle::after{content:"";position:absolute;inset:54px;border:1px dashed rgba(140,140,140,.28);border-radius:50%}
-#characterOverview .signal-ghost{position:absolute;left:30%;bottom:9%;font-weight:900;font-style:italic;font-size:2.75rem;letter-spacing:.04em;color:var(--character-color,#2f6bff);opacity:.35}
+#characterOverview .signal-ghost{position:absolute;left:26%;bottom:9%;font-weight:900;font-style:italic;font-size:2.4rem;letter-spacing:.04em;color:var(--character-color,#2f6bff);opacity:.35}
 #characterOverview .signal-sysline{position:absolute;top:24px;left:46px;font-size:.62rem;letter-spacing:.3em;color:#9a9a9a;z-index:3}
 #characterOverview .signal-sysline b{color:#fff}
 #characterOverview .signal-vtext{position:absolute;right:5px;top:50%;transform:translateY(-50%);writing-mode:vertical-rl;font-size:.5rem;letter-spacing:.42em;color:rgba(0,0,0,.38);z-index:3}
@@ -2269,17 +2269,17 @@ section[data-page="character"]{--stage-h:clamp(600px,calc(100dvh - 150px),800px)
 #characterOverview .signal-btn-txt small{display:block;font-size:.5rem;letter-spacing:.3em;color:#777;font-weight:400}
 #characterOverview .signal-btn-txt b{display:block;font-size:.95rem;letter-spacing:.1em;margin-top:2px}
 #characterOverview .signal-btn-sq{width:46px;background:#0a0a0a;color:var(--character-color,#2f6bff);display:flex;align-items:center;justify-content:center;font-size:1.2rem;font-weight:900}
-#characterOverview .signal-watermark-word{position:absolute;left:26px;bottom:0;font-size:5.4rem;font-weight:900;font-style:italic;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.20);white-space:nowrap;pointer-events:none;line-height:1}
+#characterOverview .signal-watermark-word{position:absolute;left:26px;bottom:0;font-size:5.4rem;font-weight:900;font-style:italic;color:transparent;-webkit-text-stroke:1px rgba(150,150,150,.5);white-space:nowrap;pointer-events:none;line-height:1}
 #characterOverview .signal-selectline{position:absolute;left:46px;bottom:14px;font-size:.56rem;letter-spacing:.3em;color:#8a8a8a;display:flex;align-items:center;gap:10px}
 #characterOverview .signal-selectline::before{content:"";width:26px;height:2px;background:var(--character-color,#2f6bff)}
 #characterOverview .overview-art{background:transparent !important;z-index:2}
 #characterOverview .overview-art::before{display:none}
 #characterOverview .signal-stampwrap{position:absolute;z-index:6;top:9%;right:3%;width:118px;height:118px}
-#characterOverview .signal-stampwrap i{position:absolute;width:20px;height:20px;border:0 solid var(--character-color,#2f6bff)}
-#characterOverview .signal-stampwrap i.tl{top:0;left:0;border-top-width:2.5px;border-left-width:2.5px}
-#characterOverview .signal-stampwrap i.tr{top:0;right:0;border-top-width:2.5px;border-right-width:2.5px}
-#characterOverview .signal-stampwrap i.bl{bottom:0;left:0;border-bottom-width:2.5px;border-left-width:2.5px}
-#characterOverview .signal-stampwrap i.br{bottom:0;right:0;border-bottom-width:2.5px;border-right-width:2.5px}
+#characterOverview .signal-stampwrap .sc{position:absolute;z-index:2;width:24px;height:24px}
+#characterOverview .signal-stampwrap .sc.tl{top:-7px;left:-7px;background:linear-gradient(var(--character-color,#2f6bff),var(--character-color,#2f6bff)) top left/100% 3px no-repeat,linear-gradient(var(--character-color,#2f6bff),var(--character-color,#2f6bff)) top left/3px 100% no-repeat}
+#characterOverview .signal-stampwrap .sc.tr{top:-7px;right:-7px;background:linear-gradient(var(--character-color,#2f6bff),var(--character-color,#2f6bff)) top right/100% 3px no-repeat,linear-gradient(var(--character-color,#2f6bff),var(--character-color,#2f6bff)) top right/3px 100% no-repeat}
+#characterOverview .signal-stampwrap .sc.bl{bottom:-7px;left:-7px;background:linear-gradient(var(--character-color,#2f6bff),var(--character-color,#2f6bff)) bottom left/100% 3px no-repeat,linear-gradient(var(--character-color,#2f6bff),var(--character-color,#2f6bff)) bottom left/3px 100% no-repeat}
+#characterOverview .signal-stampwrap .sc.br{bottom:-7px;right:-7px;background:linear-gradient(var(--character-color,#2f6bff),var(--character-color,#2f6bff)) bottom right/100% 3px no-repeat,linear-gradient(var(--character-color,#2f6bff),var(--character-color,#2f6bff)) bottom right/3px 100% no-repeat}
 #characterOverview .signal-stamp{position:absolute;inset:14px;width:auto;height:auto;border:2px solid var(--character-color,#2f6bff);border-radius:50%;box-shadow:none;background:rgba(255,255,255,.55);color:var(--character-color,#2f6bff);display:flex;align-items:center;justify-content:center;text-align:center;font-size:.8rem;font-weight:900;letter-spacing:.1em;line-height:1.35;transform:rotate(-7deg)}
 #characterOverview .signal-rail{background:transparent;z-index:4;padding:58px 16px 20px 8px;gap:10px;align-items:stretch}
 #characterOverview .signal-railhead{align-self:flex-end;text-align:right;color:#6d6d6d;font-size:.56rem;letter-spacing:.26em;line-height:1.9;margin-bottom:2px}
@@ -2638,7 +2638,7 @@ section[data-page="character"]{--stage-h:clamp(600px,calc(100dvh - 150px),800px)
               </button>
             </div>
             <div class="overview-image" id="characterImage"></div>
-            <div class="signal-stampwrap" aria-hidden="true"><i class="tl"></i><i class="tr"></i><i class="bl"></i><i class="br"></i><div class="signal-stamp" id="signalStamp">FILE<br>001</div></div>
+            <div class="signal-stampwrap" aria-hidden="true"><span class="sc tl"></span><span class="sc tr"></span><span class="sc bl"></span><span class="sc br"></span><div class="signal-stamp" id="signalStamp">FILE<br>001</div></div>
           </div>
           <nav class="signal-rail" id="signalRail" aria-label="キャラクター切り替え">
             <div class="signal-railhead"><span class="signal-rail-chev">∧ ∨</span><br>CHARACTER NAVIGATION<br><b id="signalRailStep">STEP 001</b></div>
