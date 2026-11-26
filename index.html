@@ -2240,6 +2240,77 @@ section[data-page="character"]{--signal-accent:#0033FF}
 #characterOverview .overview-image .chara-slide img{object-fit:contain !important;object-position:50% 100%}
 }
 </style>
+<style id="nicolas-chara-signal2">
+/* ===== Character stage v3: faithful CAST-style (2026-11-26) ===== */
+section[data-page="character"]{--stage-h:clamp(600px,calc(100dvh - 150px),800px)}
+#characterOverview{grid-template-columns:42% minmax(0,1fr) 24.5% !important;grid-template-rows:var(--stage-h) auto !important}
+#characterOverview .signal-bg{position:absolute;z-index:0;top:0;left:0;right:0;height:var(--stage-h);background:#0b0b0c;overflow:hidden}
+#characterOverview .signal-bg-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);background-size:54px 54px}
+#characterOverview .signal-white{position:absolute;top:-12%;height:124%;left:40%;width:82%;transform:skewX(-13deg);background:#f4f4f1;background-image:linear-gradient(rgba(0,0,0,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(0,0,0,.05) 1px,transparent 1px);background-size:54px 54px}
+#characterOverview .signal-stripe{position:absolute;top:-12%;height:124%;left:57%;width:24%;transform:skewX(-13deg);background:var(--character-color,#2f6bff);box-shadow:-18px 0 44px rgba(0,0,0,.35)}
+#characterOverview .signal-circle{position:absolute;left:43%;top:4%;width:600px;height:600px;border:1px solid rgba(140,140,140,.35);border-radius:50%}
+#characterOverview .signal-circle::after{content:"";position:absolute;inset:54px;border:1px dashed rgba(140,140,140,.28);border-radius:50%}
+#characterOverview .signal-ghost{position:absolute;left:37.5%;bottom:11%;font-weight:900;font-style:italic;font-size:2.75rem;letter-spacing:.04em;color:var(--character-color,#2f6bff);opacity:.35}
+#characterOverview .signal-sysline{position:absolute;top:24px;left:46px;font-size:.62rem;letter-spacing:.3em;color:#9a9a9a;z-index:3}
+#characterOverview .signal-sysline b{color:#fff}
+#characterOverview .signal-vtext{position:absolute;right:5px;top:50%;transform:translateY(-50%);writing-mode:vertical-rl;font-size:.5rem;letter-spacing:.42em;color:rgba(0,0,0,.38);z-index:3}
+#characterOverview .signal-allcast{position:absolute;z-index:8;left:56%;bottom:30px;background:var(--signal-accent);color:#fff;text-decoration:none;display:flex;align-items:center;gap:11px;padding:12px 18px;font-weight:900;letter-spacing:.08em;font-size:.9rem;box-shadow:0 12px 26px rgba(0,0,0,.35)}
+#characterOverview .signal-allcast small{font-size:.62rem;font-weight:700;letter-spacing:.14em}
+#characterOverview .signal-allcast-sq{display:grid;grid-template-columns:6px 6px;gap:2px}
+#characterOverview .signal-allcast-sq i{background:#fff;width:6px;height:6px;display:block}
+#characterOverview .signal-allcast-sq i:nth-child(2){background:rgba(255,255,255,.45)}
+#characterOverview .signal-panel{background:transparent;padding:86px 30px 46px 46px;z-index:3}
+#characterOverview .signal-file::before{background:var(--character-color,#2f6bff)}
+#characterOverview .signal-name-l2{letter-spacing:.16em}
+#characterOverview .signal-voice h4{color:var(--character-color,#2f6bff)}
+#characterOverview .signal-voice h4::before{content:"";display:inline-block;border-left:8px solid var(--character-color,#2f6bff);border-top:5px solid transparent;border-bottom:5px solid transparent;margin-right:7px;vertical-align:-1px}
+#characterOverview .signal-profile-btn{margin-top:26px;background:#e9e9e7;border:0;border-radius:6px;color:#111;display:flex;align-items:stretch;padding:0;overflow:hidden;letter-spacing:0;text-align:left}
+#characterOverview .signal-btn-txt{padding:10px 18px 11px 14px}
+#characterOverview .signal-btn-txt small{display:block;font-size:.5rem;letter-spacing:.3em;color:#777;font-weight:400}
+#characterOverview .signal-btn-txt b{display:block;font-size:.95rem;letter-spacing:.1em;margin-top:2px}
+#characterOverview .signal-btn-sq{width:46px;background:#0a0a0a;color:var(--character-color,#2f6bff);display:flex;align-items:center;justify-content:center;font-size:1.2rem;font-weight:900}
+#characterOverview .signal-watermark-word{position:absolute;left:26px;bottom:0;font-size:6.5rem;font-weight:900;font-style:italic;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.20);white-space:nowrap;pointer-events:none;line-height:1}
+#characterOverview .signal-selectline{position:absolute;left:46px;bottom:14px;font-size:.56rem;letter-spacing:.3em;color:#8a8a8a;display:flex;align-items:center;gap:10px}
+#characterOverview .signal-selectline::before{content:"";width:26px;height:2px;background:var(--character-color,#2f6bff)}
+#characterOverview .overview-art{background:transparent !important;z-index:2}
+#characterOverview .overview-art::before{display:none}
+#characterOverview .signal-stampwrap{position:absolute;z-index:6;top:9%;right:3%;width:118px;height:118px}
+#characterOverview .signal-stampwrap i{position:absolute;width:20px;height:20px;border:0 solid var(--character-color,#2f6bff)}
+#characterOverview .signal-stampwrap i.tl{top:0;left:0;border-top-width:2.5px;border-left-width:2.5px}
+#characterOverview .signal-stampwrap i.tr{top:0;right:0;border-top-width:2.5px;border-right-width:2.5px}
+#characterOverview .signal-stampwrap i.bl{bottom:0;left:0;border-bottom-width:2.5px;border-left-width:2.5px}
+#characterOverview .signal-stampwrap i.br{bottom:0;right:0;border-bottom-width:2.5px;border-right-width:2.5px}
+#characterOverview .signal-stamp{position:absolute;inset:14px;border:2px solid var(--character-color,#2f6bff);border-radius:50%;box-shadow:none;background:rgba(255,255,255,.55);color:var(--character-color,#2f6bff);display:flex;align-items:center;justify-content:center;text-align:center;font-size:.8rem;font-weight:900;letter-spacing:.1em;line-height:1.35;transform:rotate(-7deg)}
+#characterOverview .signal-rail{background:transparent;z-index:4;padding:58px 16px 20px 8px;gap:10px;align-items:stretch}
+#characterOverview .signal-railhead{align-self:flex-end;text-align:right;color:#6d6d6d;font-size:.56rem;letter-spacing:.26em;line-height:1.9;margin-bottom:2px}
+#characterOverview .signal-railhead b{color:#2b2b2b}
+#characterOverview .signal-rail-chev{color:#3d3d3d;font-size:.8rem;letter-spacing:.4em}
+#characterOverview .signal-card{position:relative;width:88%;margin-left:auto;aspect-ratio:16/7;background:#17181c;clip-path:polygon(7% 0,100% 0,100% 100%,0 100%,0 16%);overflow:hidden;border:0;padding:0;cursor:pointer;flex:0 0 auto;display:block;text-align:left;font-family:inherit}
+#characterOverview .signal-card:nth-of-type(even){width:95%}
+#characterOverview .signal-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top center}
+#characterOverview .signal-card::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 46%,rgba(0,0,0,.78))}
+#characterOverview .signal-card-ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:3rem;font-weight:900;color:rgba(255,255,255,.13);background:linear-gradient(140deg,#23242a,#101114)}
+#characterOverview .signal-card-tags{position:absolute;z-index:2;top:8px;left:12px}
+#characterOverview .signal-card-file{background:rgba(0,0,0,.55);color:#ddd;font-size:.55rem;letter-spacing:.16em;padding:3px 6px}
+#characterOverview .signal-card-name{position:absolute;z-index:2;left:12px;bottom:9px;color:#fff;font-weight:800;font-size:.95rem;letter-spacing:.05em;text-shadow:0 1px 8px rgba(0,0,0,.6)}
+#characterOverview .signal-card-name small{display:block;font-size:.5rem;letter-spacing:.3em;color:#c8c8c8;font-weight:400;margin-top:2px}
+#characterOverview .signal-card.sel{width:100%;aspect-ratio:16/9.6;background:var(--character-color,#2f6bff)}
+#characterOverview .signal-card.sel .signal-card-name{font-size:1.3rem;left:16px;bottom:13px}
+@media(max-width:860px){
+#characterOverview .signal-bg{display:none}
+#characterOverview .signal-panel{background:#0b0b0b;padding:30px 22px 26px}
+#characterOverview .signal-name-l2{letter-spacing:.1em}
+#characterOverview .signal-watermark-word{font-size:3.6rem;left:14px}
+#characterOverview .overview-art{background:#f4f4f2 !important}
+#characterOverview .signal-stampwrap{width:84px;height:84px;top:12px;right:10px}
+#characterOverview .signal-stamp{inset:10px;font-size:.62rem}
+#characterOverview .signal-rail{background:#0b0b0c;padding:12px;gap:10px}
+#characterOverview .signal-railhead{display:none}
+#characterOverview .signal-card{width:200px;margin-left:0;aspect-ratio:16/9}
+#characterOverview .signal-card:nth-of-type(even){width:200px}
+#characterOverview .signal-card.sel{width:220px;aspect-ratio:16/9.6}
+}
+</style>
 </head>
 
 <body>
@@ -2499,6 +2570,16 @@ section[data-page="character"]{--signal-accent:#0033FF}
       </div>
       <div class="detail">
         <div class="character-overview" id="characterOverview">
+          <div class="signal-bg" aria-hidden="true">
+            <div class="signal-bg-grid"></div>
+            <div class="signal-white"></div>
+            <div class="signal-stripe"></div>
+            <div class="signal-circle"></div>
+            <div class="signal-ghost" id="signalGhost">NA—01</div>
+            <div class="signal-sysline">/// <b>CHARACTER DATABASE</b> — SELECTION SYSTEM</div>
+            <div class="signal-vtext">NICOLAS ARCHIVE / CHARACTER DATABASE — SELECTION SYSTEM</div>
+            <a class="signal-allcast" id="signalAllCast" href="#characters"><span class="signal-allcast-sq"><i></i><i></i><i></i><i></i></span>ALL CAST ↗ <small>全キャラを見る</small></a>
+          </div>
           <div class="signal-panel" id="signalPanel">
             <div class="signal-file">CHARACTER FILE <b id="signalFileNum">001</b> / <span id="signalFileTotal">004</span></div>
             <h3 class="signal-name"><span class="signal-name-l1" id="signalNameL1"></span><span class="signal-name-l2" id="signalNameL2"></span></h3>
@@ -2510,7 +2591,9 @@ section[data-page="character"]{--signal-accent:#0033FF}
             </div>
             <p class="signal-intro" id="signalIntro"></p>
             <div class="signal-meta" id="signalMeta"></div>
-            <button class="signal-profile-btn" id="signalProfileBtn" type="button">CHARACTER PROFILE ↓</button>
+            <button class="signal-profile-btn" id="signalProfileBtn" type="button"><span class="signal-btn-txt"><small>ACCESS FILE</small><b>CHARACTER PROFILE</b></span><span class="signal-btn-sq">↗</span></button>
+            <div class="signal-watermark-word" aria-hidden="true">NICOLAS</div>
+            <div class="signal-selectline">SELECT YOUR CHARACTER</div>
           </div>
           <div class="overview-info">
             <header class="profile-identity">
@@ -2554,10 +2637,11 @@ section[data-page="character"]{--signal-accent:#0033FF}
               </button>
             </div>
             <div class="overview-image" id="characterImage"></div>
-            <div class="signal-watermark" id="signalWatermark" aria-hidden="true">01</div>
-            <div class="signal-stamp" id="signalStamp" aria-hidden="true">FILE<br>001</div>
+            <div class="signal-stampwrap" aria-hidden="true"><i class="tl"></i><i class="tr"></i><i class="bl"></i><i class="br"></i><div class="signal-stamp" id="signalStamp">FILE<br>001</div></div>
           </div>
-          <nav class="signal-rail" id="signalRail" aria-label="キャラクター切り替え"></nav>
+          <nav class="signal-rail" id="signalRail" aria-label="キャラクター切り替え">
+            <div class="signal-railhead"><span class="signal-rail-chev">∧ ∨</span><br>CHARACTER NAVIGATION<br><b id="signalRailStep">STEP 001</b></div>
+          </nav>
         </div>
         <div class="wardrobe-editor" id="wardrobeEditor" hidden></div>
         <div class="artwork-viewer" id="artworkViewer" hidden></div>
@@ -5937,19 +6021,20 @@ window.addEventListener('hashchange',sync);sync();
     if(c.height) meta.push(c.height);
     if(c.role) meta.push(c.role);
     set("signalMeta", meta.join("・"));
-    set("signalWatermark", pad(idx + 1, 2));
+    set("signalGhost", "NA—" + pad(idx + 1, 2));
+    set("signalRailStep", "STEP " + pad(idx + 1, 3));
     var stamp = document.getElementById("signalStamp");
     if(stamp) stamp.innerHTML = "FILE<br>" + num;
+    var cfg = (typeof CHARACTER_DATA_CONFIG !== "undefined") ? CHARACTER_DATA_CONFIG[kind] : null;
+    var allcast = document.getElementById("signalAllCast");
+    if(allcast && cfg) allcast.setAttribute("href", cfg.listHash);
     var rail = document.getElementById("signalRail");
     if(rail){
-      rail.replaceChildren();
-      var cfg = (typeof CHARACTER_DATA_CONFIG !== "undefined") ? CHARACTER_DATA_CONFIG[kind] : null;
-      chars.forEach(function(ch, i){
-        var item = document.createElement("div");
-        item.className = "signal-rail-item";
+      rail.querySelectorAll(".signal-card").forEach(function(el){ el.remove(); });
+      function buildCard(ch, i, active){
         var btn = document.createElement("button");
         btn.type = "button";
-        if(i === idx) btn.className = "on";
+        btn.className = "signal-card" + (active ? " sel" : "");
         btn.setAttribute("aria-label", (ch.name || "") + "を表示");
         var src = thumbFor(ch);
         if(src){
@@ -5958,19 +6043,31 @@ window.addEventListener('hashchange',sync);sync();
           btn.appendChild(img);
         } else {
           var ph = document.createElement("span");
-          ph.className = "signal-rail-ph";
+          ph.className = "signal-card-ph";
           ph.textContent = String(ch.name || "?").slice(0, 1);
           btn.appendChild(ph);
         }
-        btn.addEventListener("click", function(){
-          if(i !== idx && cfg) location.hash = "#" + cfg.detailPrefix + "-" + i;
-        });
+        var tags = document.createElement("span");
+        tags.className = "signal-card-tags";
+        var f = document.createElement("span");
+        f.className = "signal-card-file";
+        f.textContent = "FILE " + pad(i + 1, 3);
+        tags.appendChild(f);
+        btn.appendChild(tags);
         var nm = document.createElement("span");
-        nm.className = "signal-rail-name";
+        nm.className = "signal-card-name";
         nm.textContent = ch.name || "";
-        item.append(btn, nm);
-        rail.appendChild(item);
-      });
+        var sub = document.createElement("small");
+        sub.textContent = ch.listSub || "";
+        nm.appendChild(sub);
+        btn.appendChild(nm);
+        btn.addEventListener("click", function(){
+          if(!active && cfg) location.hash = "#" + cfg.detailPrefix + "-" + i;
+        });
+        return btn;
+      }
+      chars.forEach(function(ch, i){ if(i !== idx) rail.appendChild(buildCard(ch, i, false)); });
+      rail.appendChild(buildCard(c, idx, true));
     }
   }
   if(typeof renderCharacter === "function"){
