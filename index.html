@@ -2425,6 +2425,16 @@ section[data-page="character"]{--stage-h:clamp(600px,calc(100dvh - 150px),800px)
   .cs-title{min-height:1.64em}
   .cs-bio{min-height:3lh}
 }
+</style>
+<style id="nicolas-cast-fullheight">
+/* ===== CAST selector: stage fills the viewport height (2026-11-26) ===== */
+.view[data-page="characters"] .section.wrap{display:flex;flex-direction:column;min-height:calc(100dvh - 92px)}
+#characterGrid.char-grid:not([hidden]){flex:1 1 auto;display:flex!important;flex-direction:column;min-height:0}
+#characterGrid .cs-stage{flex:1 1 auto;min-height:0}
+@media(max-width:760px){
+.view[data-page="characters"] .section.wrap{min-height:calc(100dvh - 76px)}
+#characterGrid .cs-stage{grid-template-rows:1fr 86px}
+}
 </style></head>
 
 <body>
