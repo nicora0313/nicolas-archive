@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>NICOLAS | PORTFOLIO</title>
@@ -2312,7 +2313,69 @@ section[data-page="character"]{--stage-h:clamp(600px,calc(100dvh - 150px),800px)
 #characterOverview .signal-card.sel{width:220px;aspect-ratio:16/9.6}
 }
 </style>
-</head>
+<style>
+/* CAST selector, on the Characters landing page. */
+.view[data-page=characters] .section.wrap{width:min(100%,1600px)!important;max-width:1600px!important;padding:0!important;margin:auto!important}
+.view[data-page=characters] .section-head{display:none!important}
+#characterGroupTabs,#characterCategoryTabs{display:flex;justify-content:flex-start;align-items:stretch;gap:0;margin:0!important;padding:0 3%!important;background:#141417;border:0}
+#characterCategoryTabs[hidden]{display:none!important}
+#characterGroupTabs:before{content:"CAST // SELECT";align-self:center;color:white;font:900 clamp(16px,2vw,26px)/1 Arial;margin-right:auto;letter-spacing:-.05em}
+#characterGroupTabs button,#characterCategoryTabs button{min-width:0;border:0!important;border-radius:0!important;box-shadow:none!important;margin:0;background:transparent!important;color:#eee!important;letter-spacing:.07em;min-height:38px;padding:6px 16px}
+#characterGroupTabs button.active,#characterCategoryTabs button.active{color:#131315!important;background:#dcff38!important}
+#characterCategoryTabs{background:#252529}
+#characterCategoryTabs button{font-size:11px;min-height:34px}
+#characterGrid.char-grid{display:block!important;max-width:none!important;width:100%!important;margin:0!important;padding:0!important}
+.cs-stage{isolation:isolate;position:relative;display:grid;grid-template-columns:37% 40% 23%;min-height:clamp(470px,65svh,750px);background:linear-gradient(118deg,transparent 0 43%,#f4f3ed 43% 54%,#e7182e 54% 73%,#f4f3ed 73%),repeating-linear-gradient(90deg,transparent 0 44px,#ffffff09 45px),#111115;color:white;overflow:hidden}
+.cs-copy{align-self:center;position:relative;z-index:1;padding:24px 0 26px clamp(16px,3.5vw,60px);min-width:0}
+.cs-file,.cs-id,.cs-card i{font:700 11px/1.4 monospace;letter-spacing:.12em}
+.cs-file:before{content:"";display:inline-block;width:24px;height:3px;background:#f02b40;vertical-align:middle;margin-right:8px}
+.cs-title{font:950 clamp(32px,5vw,90px)/.94 Arial,sans-serif;letter-spacing:-.065em;overflow-wrap:anywhere;text-transform:uppercase;margin:18px 0 10px}
+.cs-title span{display:block;color:transparent;-webkit-text-stroke:1px white;font-size:.74em;letter-spacing:-.03em}
+.cs-name{font-weight:900;font-size:clamp(18px,2vw,32px)}
+.cs-bio{font-size:clamp(13px,1.1vw,17px);line-height:1.7;margin:18px 0;border-left:3px solid #ee2439;padding-left:10px;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:4;overflow:hidden}
+.cs-profile{display:inline-flex;align-items:center;gap:12px;background:#f6f5ee;color:#15151a!important;text-decoration:none;padding:8px 12px;font-size:14px;font-weight:800}
+.cs-profile b{background:#15151a;color:#dcff38;padding:1px 5px}
+.cs-art{position:relative;min-width:0;align-self:stretch;display:grid;place-items:center}
+.cs-art img{position:absolute;inset:2% 0 0;width:100%;height:98%;object-fit:contain;object-position:center bottom;filter:drop-shadow(8px 8px 0 #0002)}
+.cs-mark{font:italic 950 clamp(65px,13vw,190px)/1 Arial;color:#13131a;letter-spacing:-.09em;transform:rotate(-8deg);text-shadow:3px 3px #f2efe9}
+.cs-id{position:absolute;right:4%;top:5%;padding:6px 9px;background:#141417;color:white;z-index:1}
+.cs-rail{min-width:0;align-self:center;display:flex;flex-direction:column;gap:10px;max-height:clamp(420px,60svh,710px);overflow:auto;padding:10px 8%;scrollbar-width:thin}
+.cs-card{position:relative;flex:none;height:clamp(74px,11vh,130px);width:100%;overflow:hidden;text-align:left;color:white;background:#39393f;border:3px solid #131316;border-radius:15px 2px;transform:skew(-4deg);cursor:pointer}
+.cs-card img{width:100%;height:100%;position:absolute;inset:0;object-fit:cover;object-position:50% 14%;filter:grayscale(1)}
+.cs-card i{position:absolute;top:4px;left:6px;background:#18181b;color:#fff;padding:1px 3px;font-style:normal}
+.cs-card strong{display:block;text-align:right;font:italic 900 40px/1 Arial;color:#aaa;padding-right:10px}
+.cs-card b{position:absolute;bottom:0;left:0;width:100%;padding:3px 8px;background:#17171a;font-size:13px;color:white}
+.cs-card[aria-pressed=true]{outline:3px solid #dfff35;background:#cd1933}
+.cs-card[aria-pressed=true] img,.cs-card:hover img{filter:none}
+.cs-card:focus-visible,.cs-profile:focus-visible{outline:3px solid #35bfff}
+@media(max-width:760px){.cs-stage{grid-template-columns:53% 47%;grid-template-rows:minmax(310px,auto) auto;min-height:0;background:linear-gradient(113deg,transparent 0 48%,#f4f3ed 48% 60%,#e7182e 60% 83%,#f4f3ed 83%),#111115}.cs-copy{padding:22px 2px 24px 14px}.cs-title{font-size:clamp(28px,7.5vw,54px)}.cs-name{font-size:17px}.cs-rail{grid-column:1/-1;align-self:stretch;flex-direction:row;padding:10px 12px;background:#eeede8}.cs-card{width:122px;height:72px}.cs-id{font-size:9px}.cs-bio{margin:12px 0}.cs-file{font-size:9px}#characterCategoryTabs button{flex:1;padding:5px 3px;font-size:10px}}
+
+</style>
+<style>
+.cs-stage{--ink:#dd1731;--paper:#f6f4ed;background:repeating-linear-gradient(90deg,transparent 0 47px,#ffffff08 48px),repeating-linear-gradient(0deg,transparent 0 47px,#ffffff08 48px),#101014;grid-template-columns:34% 43% 23%;min-height:clamp(510px,72svh,850px)}
+.cs-stage:before,.cs-stage:after{content:"";position:absolute;inset:0;pointer-events:none;z-index:-1}
+.cs-stage:before{background:var(--paper);clip-path:polygon(56% 0,100% 0,100% 100%,28% 100%)}
+.cs-stage:after{background:var(--ink);clip-path:polygon(69% 0,89% 0,60% 100%,40% 100%);transition:background-color .22s}
+.cs-id{border:2px solid currentColor;border-radius:50%;width:68px;height:68px;display:grid;place-content:center;top:8%;right:2%;font-style:italic;background:#17171aaf;transform:rotate(-6deg)}
+.cs-art img{width:110%;max-width:none;left:-5%;filter:drop-shadow(7px 6px 0 #0002)}
+.cs-file:before{background:var(--ink)}.cs-bio{border-color:var(--ink)}.cs-mark{color:#18181c;text-shadow:4px 4px var(--paper)}
+.cs-profile{border:0;cursor:pointer}.cs-nav{display:flex;gap:6px;align-items:center;margin:0 auto;color:#17171b}.cs-nav button,.cs-all{border:0;background:#17171b;color:white;cursor:pointer;padding:5px 10px;font-weight:800}
+.cs-rail{max-height:none;overflow:visible;align-self:stretch;justify-content:center;align-items:flex-end;padding:12px 8% 12px 0;gap:8px}
+.cs-rail .cs-card{height:auto;aspect-ratio:2.3;margin:0;transform:skew(-8deg);width:calc(72% + var(--slot,0)*8%);order:var(--slot);transition:width .22s,filter .22s}
+.cs-rail .cs-card[hidden]{display:none}
+.cs-rail .cs-card[aria-pressed=true]{width:100%;aspect-ratio:1.88;background:var(--ink)}
+.cs-nav{order:-1}.cs-all{order:5;align-self:center;background:#dcff38;color:#151519}
+.cs-drawer,.cs-light{box-sizing:border-box;position:fixed;inset:0 0 0 auto;margin:0;width:min(59vw,920px);max-width:100%;height:100dvh;max-height:100dvh;padding:0;border:none;border-left:6px solid var(--ink);background:#f7f6f0;color:#18181d;overflow:auto;text-align:left}
+.cs-drawer[open]{animation:cast-drawer .3s ease-out}.cs-drawer::backdrop,.cs-light::backdrop{background:#08090bc9}
+.cs-dtop{position:sticky;z-index:1;top:0;display:flex;align-items:center;justify-content:space-between;gap:10px;background:#141417;color:white;padding:12px 5%;font:800 12px monospace;letter-spacing:.09em}
+.cs-dtop button,.cs-light button{border:0;background:#dfff39;color:#151518;padding:6px 12px;cursor:pointer;font-weight:800}
+.cs-content{padding:clamp(16px,4vw,52px)}.cs-content h2{font:950 clamp(28px,4vw,64px)/1.1 Arial,sans-serif;margin:0 0 8px;overflow-wrap:anywhere}.cs-dtabs{display:flex;gap:4px;margin:20px 0}.cs-dtabs button,.cs-content a,.cs-roster button{padding:9px 12px;border:1px solid #999;background:transparent;color:#131316;cursor:pointer}.cs-dtabs button[aria-pressed=true]{background:#19191e;color:white}.cs-body{min-height:120px;margin-bottom:24px;white-space:pre-wrap;overflow-wrap:anywhere}.cs-details{display:grid;grid-template-columns:auto 1fr;gap:6px 16px;margin:0 0 18px}.cs-details dt{font-weight:800}.cs-details dd{margin:0}.cs-gallery,.cs-roster{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.cs-gallery button{padding:0;border:0;background:#e1e0da;cursor:zoom-in}.cs-gallery img{display:block;width:100%;height:160px;object-fit:contain}.cs-roster button{text-align:left;font-weight:bold}.cs-light{inset:0;width:100%;height:100dvh;border:0;background:#111}.cs-light img{width:100%;height:100%;object-fit:contain}.cs-light button{position:absolute;right:16px;top:16px}
+@keyframes cast-drawer{from{transform:translateX(100%)}}
+@media(max-width:760px){.cs-stage{grid-template-columns:52% 48%;min-height:0}.cs-stage:before{clip-path:polygon(80% 0,100% 0,100% 100%,36% 100%)}.cs-stage:after{clip-path:polygon(95% 0,100% 0,100% 44%,70% 100%,51% 100%)}.cs-rail{flex-direction:row;justify-content:flex-start;align-items:center;overflow-x:auto;padding:10px;gap:8px}.cs-rail .cs-card,.cs-rail .cs-card[aria-pressed=true]{order:0;flex:0 0 112px;aspect-ratio:1.7;height:66px;transform:skew(-3deg)}.cs-rail .cs-card[hidden]{display:block}.cs-id{width:45px;height:45px}.cs-nav,.cs-all{display:none}.cs-drawer{width:96vw}.cs-art img{left:0;width:100%}.cs-drawer[open]{animation-duration:.14s}}
+@media(prefers-reduced-motion:reduce){.cs-stage *,.cs-stage:after,.cs-drawer[open]{animation:none!important;transition:none!important}}
+
+</style>
+<style>.cs-song{background:#dfff39;margin:5px}.cs-song[hidden]{display:none}.cs-dtabs{flex-wrap:wrap}.cs-player{display:block;width:100%;height:auto;aspect-ratio:16/9;border:0;background:#101015;margin:10px 0 16px}.cs-play{color:white;background-size:cover;background-position:center;cursor:pointer;font-size:20px;font-weight:bold}.cs-track-nav{display:flex;align-items:center;gap:12px;margin-top:16px}.cs-track-nav button{padding:6px 10px;cursor:pointer}@media(max-width:760px){.cs-song{display:block;margin:6px 0}}</style></head>
 
 <body>
 <style>
@@ -4219,17 +4282,6 @@ let activeOcCharacterCategory = "character";
    OC / TRPGのキャラクター一覧を作る処理
    タブ選択状態を見ながら、表示対象だけfilterしてカードを生成します。
    ========================================================= */
-const CHARACTER_GRID_HTML_CACHE = new Map();
-const CHARACTER_GRID_PENDING = new Map();
-let currentCharacterGridKey = "";
-let requestedCharacterGridKey = "";
-
-function getCharacterGridKey(kind){
-  return kind === "oc"
-    ? `oc:${activeOcCharacterCategory}`
-    : "trpg:all";
-}
-
 function getLoadedCharacterData(kind){
   const config = CHARACTER_DATA_CONFIG[kind];
   if(!config) return null;
@@ -4246,103 +4298,177 @@ function getLoadedCharacterData(kind){
   return null;
 }
 
-function buildCharacterGridHtml(kind, characters){
-  const visibleCharacters = kind === "oc"
-    ? characters
-        .map((c,index) => ({...c, __originalIndex:index}))
-        .filter(c => (c.category || "character") === activeOcCharacterCategory)
-    : characters.map((c,index) => ({...c, __originalIndex:index}));
+const selectedCast = new Map();
+let castRequest = 0;
 
-  if(visibleCharacters.length === 0){
-    return `
-      <div class="character-category-empty">
-        NO CHARACTER
-      </div>
-    `;
+  function youtubePlaybackUrl(value){
+    try{
+      const u = new URL(String(value || '').trim());
+      if(!['https:', 'http:'].includes(u.protocol)) return '';
+      const host = u.hostname.toLowerCase();
+      const parts = u.pathname.split('/').filter(Boolean);
+      let id = '';
+      if(host === 'youtu.be') id = parts[0] || '';
+      else if(['youtube.com','www.youtube.com','m.youtube.com','music.youtube.com','youtube-nocookie.com','www.youtube-nocookie.com'].includes(host)){
+        id = u.pathname === '/watch' ? u.searchParams.get('v') :
+          ['embed','shorts','live'].includes(parts[0]) ? parts[1] : '';
+      }
+      if(!/^[A-Za-z0-9_-]{11}$/.test(id || '')) return '';
+      const out = new URL('https://www.youtube.com/embed/' + id);
+      const time = u.searchParams.get('start') || u.searchParams.get('t') || '';
+      const match = time.match(/^(?:(\d+)h)?(?:(\d+)m)?(?:(\d+)s)?$/);
+      const seconds = /^\d+$/.test(time) ? Number(time) : match ? Number(match[1]||0)*3600+Number(match[2]||0)*60+Number(match[3]||0) : 0;
+      if(seconds > 0 && Number.isSafeInteger(seconds)) out.searchParams.set('start', String(seconds));
+      out.searchParams.set('autoplay','1');
+      out.searchParams.set('enablejsapi','1');
+      out.searchParams.set('playsinline','1');
+      return out.href;
+    }catch{return '';}
+  }
+  function getYoutubeId(url){
+    const playback = youtubePlaybackUrl(url);
+    return playback ? new URL(playback).pathname.split('/').pop() : '';
   }
 
-  const config = CHARACTER_DATA_CONFIG[kind];
 
-  return visibleCharacters.map(c => `
-    <a class="char" href="#${config.detailPrefix}-${c.__originalIndex}">
-      <div class="avatar">
-        ${
-          c.icon
-            ? `<img src="${c.icon}" alt="${c.name || "CHARACTER"}" loading="lazy" decoding="async">`
-            : avatarPlaceholder(c.__originalIndex)
-        }
-      </div>
-      <b>${c.name || "CHARACTER"}</b>
-      <small>${c.listSub || ""}</small>
-    </a>
-  `).join("");
-}
-
-/* 一度作った一覧は、同じタブならDOMを作り直さず再利用します。 */
-async function renderCharacterGrid(kind = activeCharacterGroup, options = {}){
-  const grid = document.getElementById("characterGrid");
-  if(!grid) return;
-
-  const force = options.force === true;
-  const key = getCharacterGridKey(kind);
-  requestedCharacterGridKey = key;
-
-  if(!force && currentCharacterGridKey === key && grid.dataset.gridReady === "1"){
-    return;
+function buildCastSelector(grid, kind, category, characters) {
+  const key = kind + ":" + category;
+  const entries = characters.map((c,index)=>({c,index})).filter(({c})=>
+    kind !== "oc" || (c.category || "character") === category);
+  if(!entries.length){grid.textContent = "該当するキャラクターはいません";return;}
+  grid.innerHTML = `<section class="cs-stage" aria-label="キャラクター選択">
+    <div class="cs-copy" aria-live="polite"><div class="cs-file"></div><h2 class="cs-title"></h2>
+    <div class="cs-name"></div><p class="cs-bio"></p><button type="button" class="cs-profile">プロフィールを見る <b aria-hidden="true">↗</b></button></div>
+    <div class="cs-art"><span class="cs-id"></span></div><div class="cs-rail" role="group" aria-label="キャラクター一覧"></div></section>`;
+  const part = name=>grid.querySelector(".cs-"+name);
+  const number = n=>String(n+1).padStart(3,"0");
+  const portrait = c=>c.images?.find(Boolean) || c.outfits?.find(o=>o?.image)?.image || c.icon || "";
+  function initials(c){return String(c.listSub || c.name || "?").trim().split(/\s+/).slice(0,2).map(word=>Array.from(word)[0]).join("").toUpperCase();}
+  function visual(c,thumb){
+    const src=thumb ? c.icon || portrait(c) : portrait(c);
+    const fallback=document.createElement(thumb?"strong":"span");
+    fallback.className="cs-mark"+(thumb?"-small":"");fallback.textContent=initials(c);
+    fallback.setAttribute("aria-hidden","true");
+    if(!src)return fallback;
+    const im=new Image();im.alt=thumb?"":c.name || "";im.onerror=()=>im.replaceWith(fallback);im.src=src;return im;
   }
-
-  if(!force && CHARACTER_GRID_HTML_CACHE.has(key)){
-    grid.innerHTML = CHARACTER_GRID_HTML_CACHE.get(key);
-    currentCharacterGridKey = key;
-    grid.dataset.gridReady = "1";
-    return;
-  }
-
-  /* 既に別一覧が見えている時は LOADING に戻さず、そのまま保持してちらつきを防ぐ */
-  if(!grid.dataset.gridReady && !grid.children.length){
-    grid.innerHTML = `
-      <div class="character-category-empty">
-        LOADING...
-      </div>
-    `;
-  }
-
-  let pending = CHARACTER_GRID_PENDING.get(key);
-
-  if(!pending){
-    pending = loadCharacterData(kind)
-      .then(characters => {
-        const gridHtml = buildCharacterGridHtml(kind, characters);
-        CHARACTER_GRID_HTML_CACHE.set(key, gridHtml);
-        return gridHtml;
-      })
-      .finally(() => {
-        CHARACTER_GRID_PENDING.delete(key);
+  const rail=part("rail"),art=part("art"),badge=part("id");
+  function choose(pos){
+    selectedCast.set(key,pos);
+    songsButton.hidden=!entries[pos].c.music?.some(m=>youtubePlaybackUrl(m?.embedUrl || m?.url || m));
+    const {c,index}=entries[pos], words=String(c.listSub || c.name || "CHARACTER").trim().split(/\s+/);
+    const tail=document.createElement("span");tail.textContent=words.slice(1).join(" ");
+    part("title").replaceChildren(words[0],tail);part("name").textContent=c.name || "";
+    part("bio").textContent=c.text || c.sub || "";part("bio").hidden=!part("bio").textContent;
+    part("file").textContent="CHARACTER FILE "+number(pos)+" / "+number(entries.length-1);
+    badge.textContent="FILE "+number(pos);art.replaceChildren(visual(c,false),badge);
+    const accent=c.themeColor && CSS.supports("color",c.themeColor)?c.themeColor:"#db1932";
+    stage.style.setProperty("--ink",accent);
+    const cards=rail.querySelectorAll(".cs-card"), count=Math.min(entries.length,4);
+    cards.forEach((card,i)=>{
+      const distance=(i-pos+entries.length)%entries.length;
+      card.hidden=distance>=count;
+      card.style.setProperty("--slot",distance===0?count:distance-1);
+      card.setAttribute("aria-pressed",String(pos===i));
+    });
+    if(lastPosition!==null && lastPosition!==pos && !matchMedia("(prefers-reduced-motion: reduce)").matches){
+      const mobile=matchMedia("(max-width:760px)").matches;
+      [art.firstElementChild,part("copy")].forEach((node,i)=>{
+        node.getAnimations().forEach(anim=>anim.cancel());
+        node.animate([{opacity:0,translate:mobile?"0 0":(i?"-18px 0":"34px 0")},{opacity:1,translate:"0 0"}],{duration:mobile?140:340,easing:"ease-out"});
       });
-
-    CHARACTER_GRID_PENDING.set(key, pending);
+    }
+    lastPosition=pos;
   }
-
+  entries.forEach(({c},i)=>{
+    const b=document.createElement("button"), label=document.createElement("b"), file=document.createElement("i");
+    b.type="button";b.className="cs-card";label.textContent=c.name || "CHARACTER";file.textContent=number(i);
+    b.append(visual(c,true),file,label);b.onclick=()=>choose(i);rail.append(b);
+  });
+  const stage=part("stage");
+  const nav=document.createElement("div");
+  nav.className="cs-nav";
+  function button(label,action){const b=document.createElement("button");b.type="button";b.textContent=label;b.onclick=action;return b;}
+  function step(delta){choose((selectedCast.get(key)+delta+entries.length)%entries.length);}
+  nav.append(button("↑",()=>step(-1)),"CAST",button("↓",()=>step(1)));
+  nav.firstChild.setAttribute("aria-label","前のキャラクター");nav.lastChild.setAttribute("aria-label","次のキャラクター");
+  const drawer=document.createElement("dialog");drawer.className="cs-drawer";drawer.setAttribute("aria-labelledby","castPanelTitle");
+  drawer.innerHTML='<header class="cs-dtop"><span>NICOLAS // CAST FILE</span><button type="button">閉じる ×</button></header><div class="cs-content"><h2 id="castPanelTitle"></h2><div class="cs-dtabs"></div><div class="cs-body"></div></div>';
+  stage.append(drawer);
+  drawer.querySelector("button").onclick=()=>drawer.close();
+  drawer.onclick=e=>{if(e.target===drawer && e.clientX<drawer.getBoundingClientRect().left)drawer.close();};
+  const body=drawer.querySelector(".cs-body"),tabs=drawer.querySelector(".cs-dtabs"),title=drawer.querySelector("h2");
+  drawer.addEventListener("close",()=>body.replaceChildren());
+  function zoom(src,alt){
+    const light=document.createElement("dialog"),image=new Image();light.className="cs-light";light.setAttribute("aria-label",alt || "作品拡大");image.src=src;image.alt=alt||"";
+    light.append(image,button("閉じる ×",()=>light.close()));drawer.append(light);light.onclose=()=>light.remove();light.showModal();
+  }
+  function openFile(startTab=0){
+    const {c,index}=entries[selectedCast.get(key)];
+    title.textContent=c.name;tabs.replaceChildren();
+    function page(i){
+      body.replaceChildren();Array.from(tabs.children).forEach((b,j)=>b.setAttribute("aria-pressed",String(j===i)));
+      if(i===3 || i===4){
+        const songs=i===3;
+        const items=(songs?c.music:c.videos)?.filter(m=>m && (youtubePlaybackUrl(m.embedUrl || m.url || m) || (!songs && m.file))) || [];
+        function display(n){
+          body.replaceChildren();
+          const item=items[n], url=youtubePlaybackUrl(item.embedUrl || item.url || item);
+          const heading=document.createElement("h3");heading.textContent=item.title || (songs?"イメソン":"動画");
+          const info=document.createElement("p");info.textContent=[item.artist,item.comment || item.note || item.description].filter(Boolean).join("\n");
+          body.append(heading,info);
+          if(url){
+            const id=new URL(url).pathname.split("/").pop();
+            const play=button("▶ 再生",()=>{
+              const frame=document.createElement("iframe");
+              frame.src=url;frame.title=heading.textContent;frame.allow="autoplay; encrypted-media; fullscreen";frame.allowFullscreen=true;
+              frame.className="cs-player";play.replaceWith(frame);
+            });
+            play.className="cs-player cs-play";play.style.backgroundImage="linear-gradient(#0004,#0006),url(https://i.ytimg.com/vi/"+id+"/hqdefault.jpg)";
+            const watch=document.createElement("a");watch.href="https://www.youtube.com/watch?v="+id;watch.target="_blank";watch.rel="noopener";watch.textContent="YouTubeで開く";
+            body.append(play,watch);
+          }else{
+            const video=document.createElement("video");video.controls=true;video.playsInline=true;video.preload="none";video.src=item.file;if(item.poster)video.poster=item.poster;video.className="cs-player";body.append(video);
+          }
+          if(items.length>1){
+            const nav=document.createElement("div");nav.className="cs-track-nav";nav.append(button("前へ",()=>display((n+items.length-1)%items.length)),(n+1)+" / "+items.length,button("次へ",()=>display((n+1)%items.length)));body.append(nav);
+          }
+        }
+        if(items.length)display(0);else body.textContent=songs?"イメソンは未登録です。":"動画は未登録です。";
+      }else if(i===0){
+        const dl=document.createElement("dl");dl.className="cs-details";
+        for(const [name,value] of [["年齢",c.age],["身長",c.height],["役割",c.role]])if(value!=null && value!==""){const dt=document.createElement("dt"),dd=document.createElement("dd");dt.textContent=name;dd.textContent=value;dl.append(dt,dd);}
+        body.append(dl,c.text || c.sub || "");
+      }else if(i===1){body.textContent=[c.memo,...(c.sessions||[]).map(s=>typeof s==="string"?s:[s?.date,s?.title].filter(Boolean).join("　"))].filter(Boolean).join("\n\n") || "メモ・履歴は未登録です。";}
+      else{
+        const gallery=document.createElement("div");gallery.className="cs-gallery";body.append(gallery);
+        const seen=new Set();
+        for(const a of [...(c.artworks||[]),...(c.images||[]),...(c.outfits||[])]){
+          const src=typeof a==="string"?a:a?.full||a?.image||a?.thumb;if(!src||seen.has(src))continue;seen.add(src);
+          const b=button("",()=>zoom(src,a.title||c.name));const im=new Image();im.src=a.thumb||src;im.alt=a.title||c.name;im.loading="lazy";b.append(im);gallery.append(b);
+        }
+        if(!seen.size)body.textContent="作品は未登録です。";
+      }
+    }
+    ["プロフィール","メモ・履歴","作品","MUSIC","MOVIE"].forEach((s,i)=>tabs.append(button(s,()=>page(i))));page(startTab);drawer.showModal();drawer.scrollTop=0;
+  }
+  function openRoster(){title.textContent="全キャラクター";tabs.replaceChildren();const group=document.createElement("div");group.className="cs-roster";entries.forEach(({c},i)=>group.append(button(c.name,()=>{choose(i);drawer.close();})));body.replaceChildren(group);drawer.showModal();drawer.scrollTop=0;}
+  rail.prepend(nav);const all=button("全キャラを見る",openRoster);all.className="cs-all";rail.append(all);
+  const songsButton=button("♫ イメソンを聴く",()=>openFile(3));
+  songsButton.className="cs-profile cs-song";
+  part("profile").after(songsButton);
+  part("profile").onclick=()=>openFile();
+  let lastPosition=null;
+  choose(Math.min(selectedCast.get(key)||0,entries.length-1));
+}
+async function renderCharacterGrid(kind=activeCharacterGroup){
+  const request=++castRequest, grid=document.getElementById("characterGrid"), category=activeOcCharacterCategory;
+  if(!grid.children.length)grid.textContent="読み込み中…";
   try{
-    const gridHtml = await pending;
-
-    /* 読み込み中に別タブへ移動していた場合、古い結果で上書きしない */
-    if(requestedCharacterGridKey !== key){
-      return;
-    }
-
-    grid.innerHTML = gridHtml;
-    currentCharacterGridKey = key;
-    grid.dataset.gridReady = "1";
+    const characters=await loadCharacterData(kind);
+    if(request===castRequest)buildCastSelector(grid,kind,category,characters);
   }catch(error){
-    if(requestedCharacterGridKey === key){
-      grid.innerHTML = `
-        <div class="character-category-empty">
-          DATA FILE NOT FOUND
-        </div>
-      `;
-      grid.dataset.gridReady = "1";
-    }
+    if(request===castRequest)grid.textContent="キャラクターデータを読み込めませんでした。";
     console.error(error);
   }
 }
@@ -5197,35 +5323,6 @@ function renderCharacter(index, kind="oc") {
   /* ===== MOVIE / MUSIC 画面 ===== */
   const videos = Array.isArray(c.videos) ? c.videos : [];
   const tracks = Array.isArray(c.music) ? c.music : [];
-
-  function youtubePlaybackUrl(value){
-    try{
-      const u = new URL(String(value || '').trim());
-      if(!['https:', 'http:'].includes(u.protocol)) return '';
-      const host = u.hostname.toLowerCase();
-      const parts = u.pathname.split('/').filter(Boolean);
-      let id = '';
-      if(host === 'youtu.be') id = parts[0] || '';
-      else if(['youtube.com','www.youtube.com','m.youtube.com','music.youtube.com','youtube-nocookie.com','www.youtube-nocookie.com'].includes(host)){
-        id = u.pathname === '/watch' ? u.searchParams.get('v') :
-          ['embed','shorts','live'].includes(parts[0]) ? parts[1] : '';
-      }
-      if(!/^[A-Za-z0-9_-]{11}$/.test(id || '')) return '';
-      const out = new URL('https://www.youtube.com/embed/' + id);
-      const time = u.searchParams.get('start') || u.searchParams.get('t') || '';
-      const match = time.match(/^(?:(\d+)h)?(?:(\d+)m)?(?:(\d+)s)?$/);
-      const seconds = /^\d+$/.test(time) ? Number(time) : match ? Number(match[1]||0)*3600+Number(match[2]||0)*60+Number(match[3]||0) : 0;
-      if(seconds > 0 && Number.isSafeInteger(seconds)) out.searchParams.set('start', String(seconds));
-      out.searchParams.set('autoplay','1');
-      out.searchParams.set('enablejsapi','1');
-      out.searchParams.set('playsinline','1');
-      return out.href;
-    }catch{return '';}
-  }
-  function getYoutubeId(url){
-    const playback = youtubePlaybackUrl(url);
-    return playback ? new URL(playback).pathname.split('/').pop() : '';
-  }
 
   function renderMediaScreen(){
     function videoPreviewHtml(v,i){
