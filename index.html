@@ -2445,7 +2445,8 @@ section[data-page="character"]{--stage-h:clamp(600px,calc(100dvh - 150px),800px)
 @media (min-width:761px){
   #characterGrid .cs-stage{grid-template-columns:30% minmax(0,1fr) 34%}
   .cs-rail{padding:12px max(14px,5%) 12px 8px;gap:clamp(6px,1vh,14px)}
-  .cs-rail .cs-card{width:calc(77% + var(--slot,0)*7%);aspect-ratio:2;max-height:18cqh}
+  #characterGrid .cs-rail{padding-inline-start:max(16px,9%)}
+  .cs-rail .cs-card{transform-origin:top right;width:calc(59% + var(--slot,0)*10%);aspect-ratio:2;max-height:calc(12cqh + var(--slot,0)*3cqh);transition:filter .45s}
   .cs-rail .cs-card[aria-pressed=true]{width:100%;aspect-ratio:1.72;max-height:26cqh}
   .cs-rail .cs-card b{font-size:clamp(15px,1.15vw,20px)}
 }
@@ -2528,6 +2529,7 @@ section[data-page="character"]{--stage-h:clamp(600px,calc(100dvh - 150px),800px)
   }
   #characterGrid .cs-stage{
     flex:1 1 auto;
+    width:100%;
     height:auto;
     min-height:320px;
   }
@@ -4538,6 +4540,15 @@ function buildCastSelector(grid, kind, category, characters) {
   }
   const rail=part("rail"),art=part("art"),badge=part("id");
   function choose(pos){
+    if(lastPosition===pos)return;
+    const animateSwitch=lastPosition!==null && !matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const desktop=matchMedia("(min-width:761px)").matches;
+    const previousCards=new Map();
+    if(animateSwitch && desktop){
+      for(const card of rail.querySelectorAll(".cs-card:not([hidden])")){
+        previousCards.set(card,card.getBoundingClientRect());
+      }
+    }
     selectedCast.set(key,pos);
     songsButton.hidden=!entries[pos].c.music?.some(m=>youtubePlaybackUrl(m?.embedUrl || m?.url || m));
     const {c,index}=entries[pos], words=String(c.listSub || c.name || "CHARACTER").trim().split(/\s+/);
@@ -4555,12 +4566,30 @@ function buildCastSelector(grid, kind, category, characters) {
       card.style.setProperty("--slot",distance===0?count:distance-1);
       card.setAttribute("aria-pressed",String(pos===i));
     });
-    if(lastPosition!==null && lastPosition!==pos && !matchMedia("(prefers-reduced-motion: reduce)").matches){
-      const mobile=matchMedia("(max-width:760px)").matches;
-      [art.firstElementChild,part("copy")].forEach((node,i)=>{
-        node.getAnimations().forEach(anim=>anim.cancel());
-        node.animate([{opacity:0,translate:mobile?"0 0":(i?"-18px 0":"34px 0")},{opacity:1,translate:"0 0"}],{duration:mobile?140:340,easing:"ease-out"});
-      });
+    if(animateSwitch){
+      const easing="cubic-bezier(.2,.72,.22,1)";
+      function enter(node,from,duration,delay=0){
+        node.getAnimations().forEach(animation=>animation.cancel());
+        node.animate([from,{opacity:1,translate:"0 0",scale:"1"}],
+          {duration,delay,easing,fill:"backwards"});
+      }
+      enter(art.firstElementChild,{opacity:0,translate:desktop?"32px 10px":"9px 4px",scale:".97"},desktop?720:480);
+      enter(part("title"),{opacity:0,translate:"0 12px"},530,55);
+      enter(part("name"),{opacity:0,translate:"0 8px"},470,95);
+      enter(part("bio"),{opacity:0,translate:"0 7px"},460,140);
+      if(desktop){
+        for(const card of cards)card.getAnimations().forEach(animation=>animation.cancel());
+        for(const card of cards){
+          if(card.hidden)continue;
+          const before=previousCards.get(card),after=card.getBoundingClientRect();
+          if(!after.height || !after.width)continue;
+          const from=before
+            ? {translate:(before.right-after.right)+"px "+(before.top-after.top)+"px",scale:(before.width/after.width)+" "+(before.height/after.height)}
+            : {opacity:0,translate:"0 -12px",scale:".94"};
+          card.animate([from,{translate:"0 0",scale:"1",opacity:1}],
+            {duration:620,easing});
+        }
+      }
     }
     lastPosition=pos;
   }
